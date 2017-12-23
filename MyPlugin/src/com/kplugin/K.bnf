@@ -1,0 +1,20 @@
+{
+  parserClass="com.kplugin.parser.KParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="K"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.kplugin.psi"
+  psiImplPackage="com.kplugin.psi.impl"
+
+  elementTypeHolderClass="com.kplugin.psi.KTypes"
+  elementTypeClass="com.kplugin.psi.KElementType"
+  tokenTypeClass="com.kplugin.psi.KTokenType"
+}
+
+kFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

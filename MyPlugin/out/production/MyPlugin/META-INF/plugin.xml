@@ -1,0 +1,46 @@
+<idea-plugin>
+
+  <id>org.amariei.ioana.k.syntax.highlighter</id>
+  <name>K syntax highlighter for Intellij IDEA</name>
+  <version>1.0</version>
+  <vendor email="ioana.birsan@info.uaic.ro" url="https://github.com/ioanabirsan/k-syntax-highlighter.git">MyCompany</vendor>
+
+  <description><![CDATA[
+      A basic plugin for Intellij IDEA that provides:
+      K syntax highlighting, support for autocompletion, and recognition of files with k extension.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="com.kplugin.KFileTypeFactory"/>
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+    <component>
+      <implementation-class>com.kplugin.old.MyPluginRegistration</implementation-class>
+    </component>
+  </application-components>
+
+
+  <actions>
+    <!-- -->
+  </actions>
+
+</idea-plugin>
