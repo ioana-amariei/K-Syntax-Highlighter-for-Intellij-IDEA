@@ -25,9 +25,8 @@
   <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
   -->
-
-
   <extensions defaultExtensionNs="com.intellij">
+    <lang.parserDefinition language="K" implementationClass="com.kplugin.KParserDefinition"/>
     <fileTypeFactory implementation="com.kplugin.KFileTypeFactory"/>
   </extensions>
 
@@ -37,7 +36,6 @@
       <implementation-class>com.kplugin.old.MyPluginRegistration</implementation-class>
     </component>
   </application-components>
-
 
   <actions>
     <!-- -->
