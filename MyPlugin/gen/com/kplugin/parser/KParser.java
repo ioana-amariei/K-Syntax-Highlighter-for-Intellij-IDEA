@@ -23,7 +23,13 @@ public class KParser implements PsiParser, LightPsiParser {
     boolean r;
     b = adapt_builder_(t, b, this, null);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
-    if (t == PROPERTY) {
+    if (t == IMPORTS_BLOCK) {
+      r = imports_block(b, 0);
+    }
+    else if (t == ITEM_) {
+      r = item_(b, 0);
+    }
+    else if (t == PROPERTY) {
       r = property(b, 0);
     }
     else {
@@ -37,26 +43,64 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // property|COMMENT|CRLF
-  static boolean item_(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "item_")) return false;
+  // IMPORTS WHITE_SPACE MODULE_NAME CRLF
+  public static boolean imports_block(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "imports_block")) return false;
+    if (!nextTokenIs(b, IMPORTS)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = property(b, l + 1);
-    if (!r) r = consumeToken(b, COMMENT);
-    if (!r) r = consumeToken(b, CRLF);
-    exit_section_(b, m, null, r);
+    r = consumeTokens(b, 0, IMPORTS, WHITE_SPACE, MODULE_NAME, CRLF);
+    exit_section_(b, m, IMPORTS_BLOCK, r);
     return r;
   }
 
   /* ********************************************************** */
-  // item_*
+  // property|COMMENT|CRLF
+  public static boolean item_(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "item_")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, ITEM_, "<item>");
+    r = property(b, l + 1);
+    if (!r) r = consumeToken(b, COMMENT);
+    if (!r) r = consumeToken(b, CRLF);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // module_*
   static boolean kFile(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "kFile")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!item_(b, l + 1)) break;
+      if (!module_(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "kFile", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // MODULE WHITE_SPACE MODULE_NAME CRLF imports_block* ENDMODULE CRLF
+  static boolean module_(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "module_")) return false;
+    if (!nextTokenIs(b, MODULE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, MODULE, WHITE_SPACE, MODULE_NAME, CRLF);
+    r = r && module__4(b, l + 1);
+    r = r && consumeTokens(b, 0, ENDMODULE, CRLF);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // imports_block*
+  private static boolean module__4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "module__4")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!imports_block(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "module__4", c)) break;
       c = current_position_(b);
     }
     return true;

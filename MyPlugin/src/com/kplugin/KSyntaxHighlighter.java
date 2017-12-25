@@ -9,6 +9,7 @@ import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import com.kplugin.psi.KTypes;
 import org.jetbrains.annotations.NotNull;
+import sun.security.krb5.internal.tools.Ktab;
 
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 
@@ -47,6 +48,12 @@ public class KSyntaxHighlighter extends SyntaxHighlighterBase {
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
         if (tokenType.equals(KTypes.SEPARATOR)) {
             return SEPARATOR_KEYS;
+        } else if (tokenType.equals(KTypes.MODULE)) {
+            return KEY_KEYS;
+        } else if (tokenType.equals(KTypes.ENDMODULE)) {
+            return KEY_KEYS;
+        } else if (tokenType.equals(KTypes.IMPORTS)) {
+            return KEY_KEYS;
         } else if (tokenType.equals(KTypes.KEY)) {
             return KEY_KEYS;
         } else if (tokenType.equals(KTypes.VALUE)) {

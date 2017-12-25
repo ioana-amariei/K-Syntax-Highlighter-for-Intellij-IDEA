@@ -54,8 +54,9 @@ class KLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 320 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\4\1\2\1\1\1\5\1\3\22\0\1\7\1\10\1\0\1\10\26\0\1\11\2\0\1\11\36\0\1"+
-    "\6\50\0\1\1\242\0\2\1\26\0");
+    "\11\0\1\4\1\2\1\3\1\5\1\1\22\0\1\7\1\10\1\0\1\10\35\0\32\20\1\0\1\6\4\0\3"+
+    "\20\1\13\1\16\3\20\1\21\2\20\1\15\1\11\1\17\1\12\1\22\1\20\1\23\1\25\1\24"+
+    "\1\14\5\20\12\0\1\3\242\0\2\3\26\0");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -63,11 +64,12 @@ class KLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\2\0\2\1\1\2\1\3\1\4\1\5\2\6\2\7"+
-    "\1\3\1\7\1\0\2\4\1\0\1\2\2\6";
+    "\2\0\1\1\3\2\1\3\1\4\4\5\1\6\1\7"+
+    "\2\10\1\1\1\10\1\7\3\5\1\0\1\6\11\5"+
+    "\1\11\3\5\1\12\1\5\1\13";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[21];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -92,12 +94,14 @@ class KLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\12\0\24\0\36\0\50\0\62\0\74\0\106"+
-    "\0\120\0\132\0\50\0\144\0\156\0\170\0\62\0\202"+
-    "\0\214\0\156\0\132\0\226\0\240";
+    "\0\0\0\26\0\54\0\102\0\130\0\156\0\130\0\204"+
+    "\0\232\0\260\0\306\0\334\0\362\0\u0108\0\156\0\u011e"+
+    "\0\u0134\0\u014a\0\156\0\u0160\0\u0176\0\u018c\0\u0134\0\u01a2"+
+    "\0\u01b8\0\u01ce\0\u01e4\0\u01fa\0\u0210\0\u0226\0\u023c\0\u0252"+
+    "\0\u0268\0\260\0\u027e\0\u0294\0\u02aa\0\260\0\u02c0\0\260";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[21];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -120,22 +124,29 @@ class KLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\3\1\4\1\5\1\4\2\5\1\6\1\5\1\7"+
-    "\1\10\1\11\1\12\1\13\1\12\1\14\1\13\1\15"+
-    "\1\16\2\11\2\3\1\0\1\3\2\0\1\17\1\0"+
-    "\1\3\1\0\1\3\1\4\1\5\1\4\2\5\1\17"+
-    "\1\5\1\3\2\0\5\5\1\0\1\5\11\0\1\3"+
-    "\2\0\2\7\1\0\1\3\2\20\1\21\1\20\1\7"+
-    "\1\20\12\0\2\11\1\0\2\11\1\0\1\22\4\11"+
-    "\1\23\1\5\2\23\1\5\1\22\1\23\3\11\1\24"+
-    "\1\16\1\24\1\14\1\16\1\22\1\14\5\11\1\25"+
-    "\6\11\1\0\1\5\1\16\1\5\2\16\1\0\1\16"+
-    "\2\0\2\20\2\0\10\20\2\0\3\20\1\7\2\20"+
-    "\1\11\1\24\1\5\2\24\1\5\1\22\1\24\7\11"+
-    "\1\0\1\22\3\11";
+    "\1\3\1\4\1\5\1\6\1\7\1\5\1\3\1\7"+
+    "\1\10\1\11\4\12\1\13\2\12\1\14\4\12\1\15"+
+    "\1\16\1\17\1\16\1\20\1\17\1\21\1\22\16\15"+
+    "\27\0\1\23\1\6\3\23\1\0\1\23\17\0\1\23"+
+    "\1\7\1\23\2\7\1\0\1\7\17\0\5\23\1\0"+
+    "\1\23\16\0\1\10\2\0\23\10\11\0\1\12\1\24"+
+    "\13\12\11\0\15\12\11\0\6\12\1\25\6\12\11\0"+
+    "\1\26\14\12\2\15\1\0\2\15\1\0\1\27\20\15"+
+    "\1\16\1\23\2\16\1\23\1\27\1\16\17\15\1\16"+
+    "\1\22\1\16\1\20\1\22\1\27\1\20\17\15\1\30"+
+    "\24\15\1\0\1\23\1\22\1\23\2\22\1\0\1\22"+
+    "\27\0\2\12\1\31\12\12\11\0\2\12\1\32\12\12"+
+    "\11\0\11\12\1\33\3\12\5\15\1\0\1\27\17\15"+
+    "\11\0\3\12\1\34\11\12\11\0\1\35\14\12\11\0"+
+    "\1\12\1\36\13\12\11\0\4\12\1\37\10\12\11\0"+
+    "\1\12\1\40\13\12\11\0\12\12\1\41\2\12\11\0"+
+    "\5\12\1\42\7\12\11\0\2\12\1\43\12\12\11\0"+
+    "\13\12\1\44\1\12\11\0\3\12\1\45\11\12\11\0"+
+    "\14\12\1\46\11\0\4\12\1\47\10\12\11\0\5\12"+
+    "\1\50\7\12";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[170];
+    int [] result = new int[726];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -173,10 +184,10 @@ class KLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\2\0\5\1\1\11\6\1\1\0\2\1\1\0\3\1";
+    "\2\0\1\11\23\1\1\0\21\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[21];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -490,40 +501,60 @@ class KLexer implements FlexLexer {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { yybegin(YYINITIAL); return KTypes.KEY;
-            } 
-            // fall through
-          case 8: break;
-          case 2: 
-            { yybegin(YYINITIAL); return TokenType.WHITE_SPACE;
-            } 
-            // fall through
-          case 9: break;
-          case 3: 
             { return TokenType.BAD_CHARACTER;
             } 
             // fall through
-          case 10: break;
+          case 12: break;
+          case 2: 
+            { yybegin(YYINITIAL); return KTypes.CRLF;
+            } 
+            // fall through
+          case 13: break;
+          case 3: 
+            { yybegin(YYINITIAL); return KTypes.WHITE_SPACE;
+            } 
+            // fall through
+          case 14: break;
           case 4: 
             { yybegin(YYINITIAL); return KTypes.COMMENT;
             } 
             // fall through
-          case 11: break;
+          case 15: break;
           case 5: 
-            { yybegin(WAITING_VALUE); return KTypes.SEPARATOR;
+            { yybegin(YYINITIAL); return KTypes.MODULE_NAME;
             } 
             // fall through
-          case 12: break;
+          case 16: break;
           case 6: 
             { yybegin(YYINITIAL); return KTypes.VALUE;
             } 
             // fall through
-          case 13: break;
+          case 17: break;
           case 7: 
+            { yybegin(YYINITIAL); return TokenType.WHITE_SPACE;
+            } 
+            // fall through
+          case 18: break;
+          case 8: 
             { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE;
             } 
             // fall through
-          case 14: break;
+          case 19: break;
+          case 9: 
+            { yybegin(YYINITIAL); return KTypes.MODULE;
+            } 
+            // fall through
+          case 20: break;
+          case 10: 
+            { yybegin(YYINITIAL); return KTypes.IMPORTS;
+            } 
+            // fall through
+          case 21: break;
+          case 11: 
+            { yybegin(YYINITIAL); return KTypes.ENDMODULE;
+            } 
+            // fall through
+          case 22: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

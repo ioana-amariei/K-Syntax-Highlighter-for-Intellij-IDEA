@@ -13,8 +13,15 @@
   tokenTypeClass="com.kplugin.psi.KTokenType"
 }
 
-kFile ::= item_*
 
-private item_ ::= (property|COMMENT|CRLF)
+
+kFile ::= module_*
+
+private module_ ::= MODULE WHITE_SPACE MODULE_NAME CRLF imports_block* ENDMODULE
+
+imports_block ::= IMPORTS WHITE_SPACE MODULE_NAME CRLF
+
+item_ ::= (property|COMMENT|CRLF)
 
 property ::= (KEY? SEPARATOR VALUE?) | KEY
+
