@@ -2,19 +2,11 @@ package com.kplugin;
 
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.options.colors.AttributesDescriptor;
-import com.intellij.openapi.options.colors.ColorDescriptor;
-import com.intellij.openapi.options.colors.ColorSettingsPage;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.options.colors.*;
+import org.jetbrains.annotations.*;
 
 import javax.swing.*;
 import java.util.Map;
-
-/**
- * Created by AMI on 2017-12-23.
- */
-
 
 public class KColorSettingsPage implements ColorSettingsPage {
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
@@ -54,7 +46,7 @@ public class KColorSettingsPage implements ColorSettingsPage {
 
     @Nullable
     @Override
-    public Map <String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
+    public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
         return null;
     }
 
@@ -73,7 +65,6 @@ public class KColorSettingsPage implements ColorSettingsPage {
     @NotNull
     @Override
     public String getDisplayName() {
-        return "K";
+        return "Simple";
     }
 }
-

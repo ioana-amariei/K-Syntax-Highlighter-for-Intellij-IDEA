@@ -9,6 +9,7 @@ import org.jetbrains.annotations.*;
 
 public class KElementType extends IElementType {
     public KElementType(@NotNull @NonNls String debugName) {
+
         super(debugName, KLanguage.INSTANCE);
     }
 }
