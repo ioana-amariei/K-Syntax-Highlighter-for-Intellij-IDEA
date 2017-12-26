@@ -5,9 +5,15 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface KImportsBlock extends PsiElement {
+public interface KModuleBody extends PsiElement {
 
   @NotNull
-  List<KImportsLine> getImportsLineList();
+  KImportsBlock getImportsBlock();
+
+  @Nullable
+  KRuleBlock getRuleBlock();
+
+  @Nullable
+  KSyntaxBlock getSyntaxBlock();
 
 }

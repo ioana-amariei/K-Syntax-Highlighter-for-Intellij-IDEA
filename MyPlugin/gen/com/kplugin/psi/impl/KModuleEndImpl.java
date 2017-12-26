@@ -11,25 +11,19 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KImportsBlockImpl extends ASTWrapperPsiElement implements KImportsBlock {
+public class KModuleEndImpl extends ASTWrapperPsiElement implements KModuleEnd {
 
-  public KImportsBlockImpl(ASTNode node) {
+  public KModuleEndImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitImportsBlock(this);
+    visitor.visitModuleEnd(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KVisitor) accept((KVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public List<KImportsLine> getImportsLineList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KImportsLine.class);
   }
 
 }

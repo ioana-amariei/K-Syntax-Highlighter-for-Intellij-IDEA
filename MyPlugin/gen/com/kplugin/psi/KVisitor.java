@@ -7,7 +7,19 @@ import com.intellij.psi.PsiElement;
 
 public class KVisitor extends PsiElementVisitor {
 
+  public void visitHeaderBlock(@NotNull KHeaderBlock o) {
+    visitPsiElement(o);
+  }
+
+  public void visitHeaderLine(@NotNull KHeaderLine o) {
+    visitPsiElement(o);
+  }
+
   public void visitImportsBlock(@NotNull KImportsBlock o) {
+    visitPsiElement(o);
+  }
+
+  public void visitImportsLine(@NotNull KImportsLine o) {
     visitPsiElement(o);
   }
 
@@ -15,7 +27,27 @@ public class KVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitModuleBody(@NotNull KModuleBody o) {
+    visitPsiElement(o);
+  }
+
+  public void visitModuleEnd(@NotNull KModuleEnd o) {
+    visitPsiElement(o);
+  }
+
+  public void visitModuleStart(@NotNull KModuleStart o) {
+    visitPsiElement(o);
+  }
+
   public void visitProperty(@NotNull KProperty o) {
+    visitPsiElement(o);
+  }
+
+  public void visitRuleBlock(@NotNull KRuleBlock o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSyntaxBlock(@NotNull KSyntaxBlock o) {
     visitPsiElement(o);
   }
 

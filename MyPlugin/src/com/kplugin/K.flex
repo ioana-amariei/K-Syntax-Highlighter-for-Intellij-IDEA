@@ -16,8 +16,7 @@ import com.intellij.psi.TokenType;
 %eof}
 
 CRLF=\r|\n|\r\n|\R
-WHITE_SPACE=[\ \n\t\f]+
-//WHITE_SPACE=[\s]
+WS=[\ \n\t\f\s]
 FIRST_VALUE_CHARACTER=[^ \n\f\\] | "\\"{CRLF} | "\\".
 VALUE_CHARACTER=[^\n\f\\] | "\\"{CRLF} | "\\".
 END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
@@ -27,22 +26,32 @@ MODULE=module
 ENDMODULE=endmodule
 MODULE_NAME=[A-Za-z]+
 IMPORTS=imports
+REQUIRE=require
+SYNTAX=syntax
+RULE=rule
 
 %state WAITING_VALUE
 
 %%
 
-<YYINITIAL> {CRLF}                           { yybegin(YYINITIAL); return KTypes.CRLF; }
+<WAITING_VALUE> {CRLF}({CRLF}|{WS})+               { yybegin(YYINITIAL); return KTypes.WS; }
+<WAITING_VALUE> {WS}+                               { yybegin(WAITING_VALUE); return KTypes.WS; }
+//({CRLF}|{WS})+                         { yybegin(YYINITIAL); return KTypes.WS; }
+<YYINITIAL> {CRLF}+                          { yybegin(YYINITIAL); return KTypes.CRLF; }
+<YYINITIAL> {WS}+                          { yybegin(YYINITIAL); return KTypes.WS; }
+
+<YYINITIAL> {REQUIRE}                           { yybegin(YYINITIAL); return KTypes.REQUIRE; }
+<YYINITIAL> {SYNTAX}                           { yybegin(YYINITIAL); return KTypes.SYNTAX; }
+<YYINITIAL> {RULE}                           { yybegin(YYINITIAL); return KTypes.RULE; }
 <YYINITIAL> {MODULE}                           { yybegin(YYINITIAL); return KTypes.MODULE; }
 <YYINITIAL> {IMPORTS}                           { yybegin(YYINITIAL); return KTypes.IMPORTS; }
 <YYINITIAL> {ENDMODULE}                           { yybegin(YYINITIAL); return KTypes.ENDMODULE; }
 <YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return KTypes.COMMENT; }
 <YYINITIAL> {MODULE_NAME}                           { yybegin(YYINITIAL); return KTypes.MODULE_NAME; }
-<YYINITIAL> {WHITE_SPACE}                           { yybegin(YYINITIAL); return KTypes.WHITE_SPACE; }
 
-<WAITING_VALUE> {CRLF}({CRLF}|{WHITE_SPACE})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
-<WAITING_VALUE> {WHITE_SPACE}+                              { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
-({CRLF}|{WHITE_SPACE})+                         { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
+//<WAITING_VALUE> {CRLF}({CRLF}|{WS})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
+//<WAITING_VALUE> {WS}+                               { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
+//({CRLF}|{WS})+                         { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 
 //<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return KTypes.KEY; }
 //

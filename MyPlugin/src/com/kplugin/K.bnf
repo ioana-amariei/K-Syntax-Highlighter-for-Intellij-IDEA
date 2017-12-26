@@ -14,12 +14,27 @@
 }
 
 
+kFile ::= header_block module_definition+
 
-kFile ::= module_*
+header_block ::= header_line*
 
-private module_ ::= MODULE WHITE_SPACE MODULE_NAME CRLF imports_block* ENDMODULE
+header_line ::= REQUIRE CRLF+
 
-imports_block ::= IMPORTS WHITE_SPACE MODULE_NAME CRLF
+private module_definition ::= module_start module_body module_end
+
+module_start ::= WS* MODULE WS+ MODULE_NAME WS* CRLF*
+
+module_body ::= (imports_block CRLF* syntax_block CRLF*) | (imports_block CRLF* rule_block CRLF*)
+
+module_end ::= ENDMODULE CRLF*
+
+imports_block ::= imports_line*
+
+syntax_block ::= SYNTAX
+
+rule_block ::= RULE
+
+imports_line ::= WS* IMPORTS WS+ MODULE_NAME WS* CRLF*
 
 item_ ::= (property|COMMENT|CRLF)
 

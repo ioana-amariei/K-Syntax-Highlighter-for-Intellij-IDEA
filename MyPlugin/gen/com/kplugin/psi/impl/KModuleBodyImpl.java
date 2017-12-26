@@ -11,14 +11,14 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KImportsBlockImpl extends ASTWrapperPsiElement implements KImportsBlock {
+public class KModuleBodyImpl extends ASTWrapperPsiElement implements KModuleBody {
 
-  public KImportsBlockImpl(ASTNode node) {
+  public KModuleBodyImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitImportsBlock(this);
+    visitor.visitModuleBody(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,8 +28,20 @@ public class KImportsBlockImpl extends ASTWrapperPsiElement implements KImportsB
 
   @Override
   @NotNull
-  public List<KImportsLine> getImportsLineList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KImportsLine.class);
+  public KImportsBlock getImportsBlock() {
+    return findNotNullChildByClass(KImportsBlock.class);
+  }
+
+  @Override
+  @Nullable
+  public KRuleBlock getRuleBlock() {
+    return findChildByClass(KRuleBlock.class);
+  }
+
+  @Override
+  @Nullable
+  public KSyntaxBlock getSyntaxBlock() {
+    return findChildByClass(KSyntaxBlock.class);
   }
 
 }
