@@ -30,7 +30,16 @@ module_end ::= ENDMODULE CRLF*
 
 imports_block ::= imports_line*
 
-syntax_block ::= SYNTAX
+syntax_block ::= statement+
+
+statement ::= SYNTAX WS+ TYPE WS+ ASSIGN WS+ expression_block
+
+expression_block ::= (WS* expression_ WS* list_options? CRLF* WS* OR_SIGN?)+
+expression_ ::= TYPE
+                | (SIGN TYPE SIGN)
+                | (TYPE OPERATION TYPE)
+
+list_options ::= OPTION
 
 rule_block ::= RULE
 

@@ -11,25 +11,19 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KSyntaxBlockImpl extends ASTWrapperPsiElement implements KSyntaxBlock {
+public class KExpression_Impl extends ASTWrapperPsiElement implements KExpression_ {
 
-  public KSyntaxBlockImpl(ASTNode node) {
+  public KExpression_Impl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitSyntaxBlock(this);
+    visitor.visitExpression_(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KVisitor) accept((KVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public List<KStatement> getStatementList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KStatement.class);
   }
 
 }

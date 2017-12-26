@@ -5,9 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface KSyntaxBlock extends PsiElement {
+public interface KExpressionBlock extends PsiElement {
 
   @NotNull
-  List<KStatement> getStatementList();
+  List<KExpression_> getExpression_List();
+
+  @NotNull
+  List<KListOptions> getListOptionsList();
 
 }
