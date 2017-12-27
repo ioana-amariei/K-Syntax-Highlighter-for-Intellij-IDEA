@@ -54,6 +54,18 @@ public class KSyntaxHighlighter extends SyntaxHighlighterBase {
             return KEY_KEYS;
         } else if (tokenType.equals(KTypes.IMPORTS)) {
             return KEY_KEYS;
+        } else if (tokenType.equals(KTypes.REQUIRE)) {
+            return KEY_KEYS;
+        } else if (tokenType.equals(KTypes.RULE)) {
+            return KEY_KEYS;
+        } else if (tokenType.equals(KTypes.TYPE)) {
+            return VALUE_KEYS;
+        } else if (tokenType.equals(KTypes.STRING_VALUE)) {
+            return SEPARATOR_KEYS;
+        } else if (tokenType.equals(KTypes.ASSIGN)) {
+            return SEPARATOR_KEYS;
+        } else if (tokenType.equals(KTypes.OPTION)) {
+            return SEPARATOR_KEYS;
         } else if (tokenType.equals(KTypes.KEY)) {
             return KEY_KEYS;
         } else if (tokenType.equals(KTypes.VALUE)) {
