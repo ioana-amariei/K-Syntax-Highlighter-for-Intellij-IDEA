@@ -32,7 +32,6 @@ public interface KTypes {
   IElementType KEY = new KTokenType("KEY");
   IElementType MODULE = new KTokenType("MODULE");
   IElementType MODULE_NAME = new KTokenType("MODULE_NAME");
-  IElementType OPERATION = new KTokenType("OPERATION");
   IElementType OPTION = new KTokenType("OPTION");
   IElementType OR_SIGN = new KTokenType("OR_SIGN");
   IElementType REQUIRE = new KTokenType("REQUIRE");

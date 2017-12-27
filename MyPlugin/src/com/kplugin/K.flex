@@ -29,10 +29,7 @@ REQUIRE=require
 SYNTAX=syntax
 RULE=rule
 SORT_NAME=[A-Z][a-z]*
-OPEN_SIGN=  \( | \[ | \{
-CLOSE_SIGN= \) | \] | \}
-SIGN= {OPEN_SIGN} | {CLOSE_SIGN}
-OPERATION=  \+ | \- | \* | \%
+SIGN= \"[^A-Za-z0-9]\"
 ASSIGN="::="
 TYPE=Int|String|Float|{SORT_NAME}
 OR_SIGN="|"
@@ -61,7 +58,6 @@ NUMBER=[12]
 <YYINITIAL> {ENDMODULE}                           { yybegin(YYINITIAL); return KTypes.ENDMODULE; }
 <YYINITIAL> {TYPE}                           { yybegin(YYINITIAL); return KTypes.TYPE; }
 <YYINITIAL> {SIGN}                           { yybegin(YYINITIAL); return KTypes.SIGN; }
-<YYINITIAL> {OPERATION}                           { yybegin(YYINITIAL); return KTypes.OPERATION; }
 <YYINITIAL> {OPTION}                           { yybegin(YYINITIAL); return KTypes.OPTION; }
 <YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return KTypes.COMMENT; }
 

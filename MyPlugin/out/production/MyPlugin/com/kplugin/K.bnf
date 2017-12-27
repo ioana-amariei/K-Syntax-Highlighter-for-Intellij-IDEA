@@ -14,7 +14,7 @@
 }
 
 
-kFile ::= header_block module_definition+
+kFile ::= CRLF* header_block CRLF* (module_definition CRLF*)+
 
 header_block ::= header_line*
 
@@ -36,8 +36,8 @@ statement ::= SYNTAX WS+ TYPE WS+ ASSIGN WS+ expression_block
 
 expression_block ::= (WS* expression_ WS* list_options? CRLF* WS* OR_SIGN?)+
 expression_ ::= TYPE
-                | (SIGN TYPE SIGN)
-                | (TYPE OPERATION TYPE)
+                | (SIGN WS* TYPE WS* SIGN)
+                | (TYPE WS* SIGN WS* TYPE)
 
 list_options ::= OPTION
 

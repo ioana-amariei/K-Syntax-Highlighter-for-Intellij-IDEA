@@ -80,8 +80,8 @@ public class KParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // TYPE
-  //                 | (SIGN TYPE SIGN)
-  //                 | (TYPE OPERATION TYPE)
+  //                 | (SIGN WS* TYPE WS* SIGN)
+  //                 | (TYPE WS* SIGN WS* TYPE)
   public static boolean expression_(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression_")) return false;
     if (!nextTokenIs(b, "<expression>", SIGN, TYPE)) return false;
@@ -94,24 +94,80 @@ public class KParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // SIGN TYPE SIGN
+  // SIGN WS* TYPE WS* SIGN
   private static boolean expression__1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression__1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, SIGN, TYPE, SIGN);
+    r = consumeToken(b, SIGN);
+    r = r && expression__1_1(b, l + 1);
+    r = r && consumeToken(b, TYPE);
+    r = r && expression__1_3(b, l + 1);
+    r = r && consumeToken(b, SIGN);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  // TYPE OPERATION TYPE
+  // WS*
+  private static boolean expression__1_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "expression__1_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "expression__1_1", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // WS*
+  private static boolean expression__1_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "expression__1_3")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "expression__1_3", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // TYPE WS* SIGN WS* TYPE
   private static boolean expression__2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression__2")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, TYPE, OPERATION, TYPE);
+    r = consumeToken(b, TYPE);
+    r = r && expression__2_1(b, l + 1);
+    r = r && consumeToken(b, SIGN);
+    r = r && expression__2_3(b, l + 1);
+    r = r && consumeToken(b, TYPE);
     exit_section_(b, m, null, r);
     return r;
+  }
+
+  // WS*
+  private static boolean expression__2_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "expression__2_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "expression__2_1", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // WS*
+  private static boolean expression__2_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "expression__2_3")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "expression__2_3", c)) break;
+      c = current_position_(b);
+    }
+    return true;
   }
 
   /* ********************************************************** */
@@ -351,31 +407,80 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // header_block module_definition+
+  // CRLF* header_block CRLF* (module_definition CRLF*)+
   static boolean kFile(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "kFile")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = header_block(b, l + 1);
-    r = r && kFile_1(b, l + 1);
+    r = kFile_0(b, l + 1);
+    r = r && header_block(b, l + 1);
+    r = r && kFile_2(b, l + 1);
+    r = r && kFile_3(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  // module_definition+
-  private static boolean kFile_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "kFile_1")) return false;
+  // CRLF*
+  private static boolean kFile_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "kFile_0")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, CRLF)) break;
+      if (!empty_element_parsed_guard_(b, "kFile_0", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // CRLF*
+  private static boolean kFile_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "kFile_2")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, CRLF)) break;
+      if (!empty_element_parsed_guard_(b, "kFile_2", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // (module_definition CRLF*)+
+  private static boolean kFile_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "kFile_3")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = module_definition(b, l + 1);
+    r = kFile_3_0(b, l + 1);
     int c = current_position_(b);
     while (r) {
-      if (!module_definition(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "kFile_1", c)) break;
+      if (!kFile_3_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "kFile_3", c)) break;
       c = current_position_(b);
     }
     exit_section_(b, m, null, r);
     return r;
+  }
+
+  // module_definition CRLF*
+  private static boolean kFile_3_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "kFile_3_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = module_definition(b, l + 1);
+    r = r && kFile_3_0_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // CRLF*
+  private static boolean kFile_3_0_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "kFile_3_0_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, CRLF)) break;
+      if (!empty_element_parsed_guard_(b, "kFile_3_0_1", c)) break;
+      c = current_position_(b);
+    }
+    return true;
   }
 
   /* ********************************************************** */
