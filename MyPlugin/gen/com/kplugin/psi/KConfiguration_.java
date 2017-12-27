@@ -8,6 +8,12 @@ import com.intellij.psi.PsiElement;
 public interface KConfiguration_ extends PsiElement {
 
   @NotNull
-  List<KCell_> getCell_List();
+  KCellContent getCellContent();
+
+  @NotNull
+  KCellEnd getCellEnd();
+
+  @NotNull
+  KCellStart getCellStart();
 
 }

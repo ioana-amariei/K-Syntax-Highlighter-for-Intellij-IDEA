@@ -23,8 +23,14 @@ public class KParser implements PsiParser, LightPsiParser {
     boolean r;
     b = adapt_builder_(t, b, this, null);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
-    if (t == CELL_) {
-      r = cell_(b, 0);
+    if (t == CELL_CONTENT) {
+      r = cell_content(b, 0);
+    }
+    else if (t == CELL_END) {
+      r = cell_end(b, 0);
+    }
+    else if (t == CELL_START) {
+      r = cell_start(b, 0);
     }
     else if (t == CONDITION_) {
       r = condition_(b, 0);
@@ -97,64 +103,321 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // WS* SPECIAL_SIGN* WS* STRING WS* SPECIAL_SIGN
-  public static boolean cell_(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "cell_")) return false;
+  // WS* ((PGM? SPECIAL_SIGN TYPE WS*) | configuration_*)
+  public static boolean cell_content(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, CELL_, "<cell>");
-    r = cell__0(b, l + 1);
-    r = r && cell__1(b, l + 1);
-    r = r && cell__2(b, l + 1);
-    r = r && consumeToken(b, STRING);
-    r = r && cell__4(b, l + 1);
-    r = r && consumeToken(b, SPECIAL_SIGN);
+    Marker m = enter_section_(b, l, _NONE_, CELL_CONTENT, "<cell content>");
+    r = cell_content_0(b, l + 1);
+    r = r && cell_content_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
   // WS*
-  private static boolean cell__0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "cell__0")) return false;
+  private static boolean cell_content_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content_0")) return false;
     int c = current_position_(b);
     while (true) {
       if (!consumeToken(b, WS)) break;
-      if (!empty_element_parsed_guard_(b, "cell__0", c)) break;
+      if (!empty_element_parsed_guard_(b, "cell_content_0", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
-  // SPECIAL_SIGN*
-  private static boolean cell__1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "cell__1")) return false;
+  // (PGM? SPECIAL_SIGN TYPE WS*) | configuration_*
+  private static boolean cell_content_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content_1")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = cell_content_1_0(b, l + 1);
+    if (!r) r = cell_content_1_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // PGM? SPECIAL_SIGN TYPE WS*
+  private static boolean cell_content_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content_1_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = cell_content_1_0_0(b, l + 1);
+    r = r && consumeTokens(b, 0, SPECIAL_SIGN, TYPE);
+    r = r && cell_content_1_0_3(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // PGM?
+  private static boolean cell_content_1_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content_1_0_0")) return false;
+    consumeToken(b, PGM);
+    return true;
+  }
+
+  // WS*
+  private static boolean cell_content_1_0_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content_1_0_3")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!consumeToken(b, SPECIAL_SIGN)) break;
-      if (!empty_element_parsed_guard_(b, "cell__1", c)) break;
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "cell_content_1_0_3", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // configuration_*
+  private static boolean cell_content_1_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_content_1_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!configuration_(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "cell_content_1_1", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // (WS|CRLF)* SPECIAL_SIGN SPECIAL_SIGN WS* ((STRING|ID) WS*)+ SPECIAL_SIGN WS*
+  public static boolean cell_end(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, CELL_END, "<cell end>");
+    r = cell_end_0(b, l + 1);
+    r = r && consumeTokens(b, 0, SPECIAL_SIGN, SPECIAL_SIGN);
+    r = r && cell_end_3(b, l + 1);
+    r = r && cell_end_4(b, l + 1);
+    r = r && consumeToken(b, SPECIAL_SIGN);
+    r = r && cell_end_6(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // (WS|CRLF)*
+  private static boolean cell_end_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_0")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!cell_end_0_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "cell_end_0", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // WS|CRLF
+  private static boolean cell_end_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, WS);
+    if (!r) r = consumeToken(b, CRLF);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WS*
+  private static boolean cell_end_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_3")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "cell_end_3", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // ((STRING|ID) WS*)+
+  private static boolean cell_end_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_4")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = cell_end_4_0(b, l + 1);
+    int c = current_position_(b);
+    while (r) {
+      if (!cell_end_4_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "cell_end_4", c)) break;
+      c = current_position_(b);
+    }
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // (STRING|ID) WS*
+  private static boolean cell_end_4_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_4_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = cell_end_4_0_0(b, l + 1);
+    r = r && cell_end_4_0_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // STRING|ID
+  private static boolean cell_end_4_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_4_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, STRING);
+    if (!r) r = consumeToken(b, ID);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WS*
+  private static boolean cell_end_4_0_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_4_0_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "cell_end_4_0_1", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
   // WS*
-  private static boolean cell__2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "cell__2")) return false;
+  private static boolean cell_end_6(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_end_6")) return false;
     int c = current_position_(b);
     while (true) {
       if (!consumeToken(b, WS)) break;
-      if (!empty_element_parsed_guard_(b, "cell__2", c)) break;
+      if (!empty_element_parsed_guard_(b, "cell_end_6", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // (WS|CRLF)* SPECIAL_SIGN WS* (STRING|ID) WS* ((STRING|ID) SPECIAL_SIGN STRING_VALUE)? WS* SPECIAL_SIGN WS*
+  public static boolean cell_start(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, CELL_START, "<cell start>");
+    r = cell_start_0(b, l + 1);
+    r = r && consumeToken(b, SPECIAL_SIGN);
+    r = r && cell_start_2(b, l + 1);
+    r = r && cell_start_3(b, l + 1);
+    r = r && cell_start_4(b, l + 1);
+    r = r && cell_start_5(b, l + 1);
+    r = r && cell_start_6(b, l + 1);
+    r = r && consumeToken(b, SPECIAL_SIGN);
+    r = r && cell_start_8(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // (WS|CRLF)*
+  private static boolean cell_start_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_0")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!cell_start_0_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "cell_start_0", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // WS|CRLF
+  private static boolean cell_start_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, WS);
+    if (!r) r = consumeToken(b, CRLF);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WS*
+  private static boolean cell_start_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_2")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "cell_start_2", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // STRING|ID
+  private static boolean cell_start_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_3")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, STRING);
+    if (!r) r = consumeToken(b, ID);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WS*
+  private static boolean cell_start_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_4")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "cell_start_4", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // ((STRING|ID) SPECIAL_SIGN STRING_VALUE)?
+  private static boolean cell_start_5(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_5")) return false;
+    cell_start_5_0(b, l + 1);
+    return true;
+  }
+
+  // (STRING|ID) SPECIAL_SIGN STRING_VALUE
+  private static boolean cell_start_5_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_5_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = cell_start_5_0_0(b, l + 1);
+    r = r && consumeTokens(b, 0, SPECIAL_SIGN, STRING_VALUE);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // STRING|ID
+  private static boolean cell_start_5_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_5_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, STRING);
+    if (!r) r = consumeToken(b, ID);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WS*
+  private static boolean cell_start_6(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_6")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, WS)) break;
+      if (!empty_element_parsed_guard_(b, "cell_start_6", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
   // WS*
-  private static boolean cell__4(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "cell__4")) return false;
+  private static boolean cell_start_8(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "cell_start_8")) return false;
     int c = current_position_(b);
     while (true) {
       if (!consumeToken(b, WS)) break;
-      if (!empty_element_parsed_guard_(b, "cell__4", c)) break;
+      if (!empty_element_parsed_guard_(b, "cell_start_8", c)) break;
       c = current_position_(b);
     }
     return true;
@@ -228,81 +491,153 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // cell_ WS* SPECIAL_SIGN? WS* PGM WS* SPECIAL_SIGN TYPE WS* cell_
+  // (CRLF|WS)* cell_start (CRLF|WS)* cell_content (CRLF|WS)* cell_end (CRLF|WS)* COMMENT* (CRLF|WS)*
   public static boolean configuration_(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "configuration_")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, CONFIGURATION_, "<configuration>");
-    r = cell_(b, l + 1);
-    r = r && configuration__1(b, l + 1);
+    r = configuration__0(b, l + 1);
+    r = r && cell_start(b, l + 1);
     r = r && configuration__2(b, l + 1);
-    r = r && configuration__3(b, l + 1);
-    r = r && consumeToken(b, PGM);
-    r = r && configuration__5(b, l + 1);
-    r = r && consumeTokens(b, 0, SPECIAL_SIGN, TYPE);
+    r = r && cell_content(b, l + 1);
+    r = r && configuration__4(b, l + 1);
+    r = r && cell_end(b, l + 1);
+    r = r && configuration__6(b, l + 1);
+    r = r && configuration__7(b, l + 1);
     r = r && configuration__8(b, l + 1);
-    r = r && cell_(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
-  // WS*
-  private static boolean configuration__1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "configuration__1")) return false;
+  // (CRLF|WS)*
+  private static boolean configuration__0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__0")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!consumeToken(b, WS)) break;
-      if (!empty_element_parsed_guard_(b, "configuration__1", c)) break;
+      if (!configuration__0_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "configuration__0", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
-  // SPECIAL_SIGN?
+  // CRLF|WS
+  private static boolean configuration__0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, CRLF);
+    if (!r) r = consumeToken(b, WS);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // (CRLF|WS)*
   private static boolean configuration__2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "configuration__2")) return false;
-    consumeToken(b, SPECIAL_SIGN);
-    return true;
-  }
-
-  // WS*
-  private static boolean configuration__3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "configuration__3")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!consumeToken(b, WS)) break;
-      if (!empty_element_parsed_guard_(b, "configuration__3", c)) break;
+      if (!configuration__2_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "configuration__2", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
-  // WS*
-  private static boolean configuration__5(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "configuration__5")) return false;
+  // CRLF|WS
+  private static boolean configuration__2_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__2_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, CRLF);
+    if (!r) r = consumeToken(b, WS);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // (CRLF|WS)*
+  private static boolean configuration__4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__4")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!consumeToken(b, WS)) break;
-      if (!empty_element_parsed_guard_(b, "configuration__5", c)) break;
+      if (!configuration__4_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "configuration__4", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
-  // WS*
+  // CRLF|WS
+  private static boolean configuration__4_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__4_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, CRLF);
+    if (!r) r = consumeToken(b, WS);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // (CRLF|WS)*
+  private static boolean configuration__6(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__6")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!configuration__6_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "configuration__6", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // CRLF|WS
+  private static boolean configuration__6_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__6_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, CRLF);
+    if (!r) r = consumeToken(b, WS);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // COMMENT*
+  private static boolean configuration__7(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__7")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!consumeToken(b, COMMENT)) break;
+      if (!empty_element_parsed_guard_(b, "configuration__7", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  // (CRLF|WS)*
   private static boolean configuration__8(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "configuration__8")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!consumeToken(b, WS)) break;
+      if (!configuration__8_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "configuration__8", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
+  // CRLF|WS
+  private static boolean configuration__8_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration__8_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, CRLF);
+    if (!r) r = consumeToken(b, WS);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
   /* ********************************************************** */
-  // (WS* CONFIGURATION WS* configuration_ CRLF*)+
+  // (WS* CONFIGURATION (CRLF|WS)* configuration_+ CRLF*)+
   public static boolean configuration_block(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "configuration_block")) return false;
     if (!nextTokenIs(b, "<configuration block>", CONFIGURATION, WS)) return false;
@@ -319,7 +654,7 @@ public class KParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // WS* CONFIGURATION WS* configuration_ CRLF*
+  // WS* CONFIGURATION (CRLF|WS)* configuration_+ CRLF*
   private static boolean configuration_block_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "configuration_block_0")) return false;
     boolean r;
@@ -327,7 +662,7 @@ public class KParser implements PsiParser, LightPsiParser {
     r = configuration_block_0_0(b, l + 1);
     r = r && consumeToken(b, CONFIGURATION);
     r = r && configuration_block_0_2(b, l + 1);
-    r = r && configuration_(b, l + 1);
+    r = r && configuration_block_0_3(b, l + 1);
     r = r && configuration_block_0_4(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -345,16 +680,43 @@ public class KParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // WS*
+  // (CRLF|WS)*
   private static boolean configuration_block_0_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "configuration_block_0_2")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!consumeToken(b, WS)) break;
+      if (!configuration_block_0_2_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "configuration_block_0_2", c)) break;
       c = current_position_(b);
     }
     return true;
+  }
+
+  // CRLF|WS
+  private static boolean configuration_block_0_2_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration_block_0_2_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, CRLF);
+    if (!r) r = consumeToken(b, WS);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // configuration_+
+  private static boolean configuration_block_0_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "configuration_block_0_3")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = configuration_(b, l + 1);
+    int c = current_position_(b);
+    while (r) {
+      if (!configuration_(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "configuration_block_0_3", c)) break;
+      c = current_position_(b);
+    }
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   // CRLF*

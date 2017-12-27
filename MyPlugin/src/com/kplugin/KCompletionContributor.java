@@ -36,7 +36,7 @@ public class KCompletionContributor extends CompletionContributor {
 
     public KCompletionContributor() {
         extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement(KTypes.SYNTAX_BLOCK).withLanguage(KLanguage.INSTANCE),
+                PlatformPatterns.psiElement(KTypes.STRING).withLanguage(KLanguage.INSTANCE),
                 new CompletionProvider <CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,

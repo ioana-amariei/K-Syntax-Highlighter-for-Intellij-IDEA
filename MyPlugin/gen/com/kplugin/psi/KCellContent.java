@@ -5,6 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface KCell_ extends PsiElement {
+public interface KCellContent extends PsiElement {
+
+  @NotNull
+  List<KConfiguration_> getConfiguration_List();
 
 }

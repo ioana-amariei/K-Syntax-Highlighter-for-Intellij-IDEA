@@ -28,8 +28,20 @@ public class KConfiguration_Impl extends ASTWrapperPsiElement implements KConfig
 
   @Override
   @NotNull
-  public List<KCell_> getCell_List() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KCell_.class);
+  public KCellContent getCellContent() {
+    return findNotNullChildByClass(KCellContent.class);
+  }
+
+  @Override
+  @NotNull
+  public KCellEnd getCellEnd() {
+    return findNotNullChildByClass(KCellEnd.class);
+  }
+
+  @Override
+  @NotNull
+  public KCellStart getCellStart() {
+    return findNotNullChildByClass(KCellStart.class);
   }
 
 }

@@ -8,7 +8,9 @@ import com.kplugin.psi.impl.*;
 
 public interface KTypes {
 
-  IElementType CELL_ = new KElementType("CELL_");
+  IElementType CELL_CONTENT = new KElementType("CELL_CONTENT");
+  IElementType CELL_END = new KElementType("CELL_END");
+  IElementType CELL_START = new KElementType("CELL_START");
   IElementType CONDITION_ = new KElementType("CONDITION_");
   IElementType CONFIGURATION_ = new KElementType("CONFIGURATION_");
   IElementType CONFIGURATION_BLOCK = new KElementType("CONFIGURATION_BLOCK");
@@ -57,8 +59,14 @@ public interface KTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == CELL_) {
-        return new KCell_Impl(node);
+       if (type == CELL_CONTENT) {
+        return new KCellContentImpl(node);
+      }
+      else if (type == CELL_END) {
+        return new KCellEndImpl(node);
+      }
+      else if (type == CELL_START) {
+        return new KCellStartImpl(node);
       }
       else if (type == CONDITION_) {
         return new KCondition_Impl(node);

@@ -24,22 +24,22 @@ SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
 MODULE=module
 ENDMODULE=endmodule
-PGM=PGM | pgm | Pgm
+PGM=[$](PGM|pgm|Pgm)
 MODULE_NAME=[A-Z]+(\-SYNTAX)?
 IMPORTS=imports
 REQUIRE=require
 SYNTAX=syntax
 RULE=rule
-ID=([A-Z][0-9]) | [0-9] | [_] | [A-Z][^\.]
+ID=([A-Z][0-9]) | [0-9] | "_" | [A-Z]
 CONFIGURATION=configuration
 STRING_VALUE= \".*\"
 WHEN=when
 ASSIGN="::="
-TYPE=Int | String | Float | Id | {SORT_NAME}
+TYPE=Int | String | Float | Id | Map | List | {SORT_NAME}
 SORT_NAME=[A-Z][a-z]*
 SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "<" | "=>" | "." | "{" |  "}"
            | "<=" | "|->" | ";" | "~>" | "..." | "/" | "=/=" | "%" | "[" | "]"
-           | "$"
+           | "$" | "="
 OPTION= \[(({KEYWORD}|[a-z]+)([ ,]?)*)+\] | {KEYWORD}
 KEYWORD=  bracket | left | right | strict | strict\({NUMBER}\)
 STRING=[A-Za-z]+
@@ -58,20 +58,20 @@ NUMBER=[12]
 <YYINITIAL> {REQUIRE}                           { yybegin(YYINITIAL); return KTypes.REQUIRE; }
 <YYINITIAL> {MODULE}                           { yybegin(YYINITIAL); return KTypes.MODULE; }
 <YYINITIAL> {PGM}                           { yybegin(YYINITIAL); return KTypes.PGM; }
-<YYINITIAL> {MODULE_NAME}                           { yybegin(YYINITIAL); return KTypes.MODULE_NAME; }
+<YYINITIAL> {SPECIAL_SIGN}                           { yybegin(YYINITIAL); return KTypes.SPECIAL_SIGN; }
 <YYINITIAL> {IMPORTS}                           { yybegin(YYINITIAL); return KTypes.IMPORTS; }
+<YYINITIAL> {ID}                           { yybegin(YYINITIAL); return KTypes.ID; }
+<YYINITIAL> {MODULE_NAME}                           { yybegin(YYINITIAL); return KTypes.MODULE_NAME; }
 <YYINITIAL> {SYNTAX}                           { yybegin(YYINITIAL); return KTypes.SYNTAX; }
 <YYINITIAL> {ASSIGN}                           { yybegin(YYINITIAL); return KTypes.ASSIGN; }
-<YYINITIAL> {SPECIAL_SIGN}                           { yybegin(YYINITIAL); return KTypes.SPECIAL_SIGN; }
-<YYINITIAL> {ID}                           { yybegin(YYINITIAL); return KTypes.ID; }
 <YYINITIAL> {WHEN}                           { yybegin(YYINITIAL); return KTypes.WHEN; }
 <YYINITIAL> {RULE}                           { yybegin(YYINITIAL); return KTypes.RULE; }
 <YYINITIAL> {CONFIGURATION}                           { yybegin(YYINITIAL); return KTypes.CONFIGURATION; }
 <YYINITIAL> {ENDMODULE}                           { yybegin(YYINITIAL); return KTypes.ENDMODULE; }
-<YYINITIAL> {TYPE}                           { yybegin(YYINITIAL); return KTypes.TYPE; }
-<YYINITIAL> {STRING_VALUE}                           { yybegin(YYINITIAL); return KTypes.STRING_VALUE; }
 <YYINITIAL> {OPTION}                           { yybegin(YYINITIAL); return KTypes.OPTION; }
 <YYINITIAL> {COMMENT}                           { yybegin(YYINITIAL); return KTypes.COMMENT; }
+<YYINITIAL> {TYPE}                           { yybegin(YYINITIAL); return KTypes.TYPE; }
+<YYINITIAL> {STRING_VALUE}                           { yybegin(YYINITIAL); return KTypes.STRING_VALUE; }
 <YYINITIAL> {STRING}                           { yybegin(YYINITIAL); return KTypes.STRING; }
 
 //<WAITING_VALUE> {CRLF}({CRLF}|{WS})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }

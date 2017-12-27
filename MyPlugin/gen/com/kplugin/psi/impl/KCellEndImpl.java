@@ -11,14 +11,14 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KCell_Impl extends ASTWrapperPsiElement implements KCell_ {
+public class KCellEndImpl extends ASTWrapperPsiElement implements KCellEnd {
 
-  public KCell_Impl(ASTNode node) {
+  public KCellEndImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitCell_(this);
+    visitor.visitCellEnd(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
