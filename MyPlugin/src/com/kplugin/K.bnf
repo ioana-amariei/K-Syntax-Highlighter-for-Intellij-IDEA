@@ -14,36 +14,41 @@
 }
 
 
-kFile ::= CRLF* header_block CRLF* (module_definition CRLF*)+
+kFile ::= (CRLF|WS|COMMENT)* header_block (CRLF|WS|COMMENT)* (module_definition CRLF*)+
 
 header_block ::= header_line*
 
 header_line ::= REQUIRE CRLF+
 
-private module_definition ::= module_start module_body module_end
+private module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* module_body (WS|COMMENT)* module_end (WS|COMMENT)*
 
 module_start ::= WS* MODULE WS+ MODULE_NAME WS* CRLF*
 
-module_body ::= (imports_block CRLF* syntax_block CRLF*) | (imports_block CRLF* rule_block CRLF*)
+module_body ::= (imports_block (CRLF|WS|COMMENT)* syntax_block (CRLF|WS|COMMENT)* )
+              | (imports_block (CRLF|WS|COMMENT)* rule_block (CRLF|WS|COMMENT)* )
 
 module_end ::= ENDMODULE CRLF*
 
 imports_block ::= imports_line*
 
-syntax_block ::= statement+
+imports_line ::= WS* IMPORTS WS+ MODULE_NAME WS* CRLF*
+
+syntax_block ::= (WS* statement CRLF*)+
 
 statement ::= SYNTAX WS+ TYPE WS+ ASSIGN WS+ expression_block
 
-expression_block ::= (WS* expression_ WS* list_options? CRLF* WS* OR_SIGN?)+
-expression_ ::= TYPE
-                | (SIGN WS* TYPE WS* SIGN)
-                | (TYPE WS* SIGN WS* TYPE)
+expression_block ::= (WS* expression_ WS* list_options? CRLF* WS* (SPECIAL_SIGN? | precedence_))+
+
+expression_ ::=   STRING_VALUE
+                | TYPE
+                | (TYPE WS* STRING_VALUE? WS* TYPE)
+                |(STRING_VALUE WS* (TYPE WS*)* WS* STRING_VALUE (TYPE WS*)*)
+
+precedence_ ::= SPECIAL_SIGN WS* (OPTION | TYPE) WS*  SPECIAL_SIGN? CRLF*
 
 list_options ::= OPTION
 
 rule_block ::= RULE
-
-imports_line ::= WS* IMPORTS WS+ MODULE_NAME WS* CRLF*
 
 item_ ::= (property|COMMENT|CRLF)
 
