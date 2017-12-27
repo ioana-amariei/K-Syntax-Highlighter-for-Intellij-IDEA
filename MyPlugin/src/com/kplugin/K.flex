@@ -18,7 +18,8 @@ CRLF=\r|\n|\r\n|\R
 WS=[\ \n\t\f\s]
 FIRST_VALUE_CHARACTER=[^ \n\f\\] | "\\"{CRLF} | "\\".
 VALUE_CHARACTER=[^\n\f\\] | "\\"{CRLF} | "\\".
-END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
+//COMMENT=("#"|"!")[^\r\n]*
+COMMENT=(\/\*.*?\*\/) | (\/\/.*?)
 SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
 MODULE=module
@@ -28,12 +29,12 @@ IMPORTS=imports
 REQUIRE=require
 SYNTAX=syntax
 RULE=rule
-SORT_NAME=[A-Z][a-z]*
-SIGN= \"[^A-Za-z0-9]\"
+STRING_VALUE= \".*\"
 ASSIGN="::="
-TYPE=Int|String|Float|{SORT_NAME}
-OR_SIGN="|"
-OPTION= \[(({KEYWORD}|[a-z]+)(\,\ )?)+\]
+TYPE=Int | String | Float | Id | {SORT_NAME}
+SORT_NAME=[A-Z][a-z]*
+SPECIAL_SIGN="|" | ">" | ":"
+OPTION= \[(({KEYWORD}|[a-z]+)([ ,]?)*)+\] | {KEYWORD}
 KEYWORD=  bracket | left | right | strict | strict\({NUMBER}\)
 NUMBER=[12]
 
@@ -53,13 +54,13 @@ NUMBER=[12]
 <YYINITIAL> {IMPORTS}                           { yybegin(YYINITIAL); return KTypes.IMPORTS; }
 <YYINITIAL> {SYNTAX}                           { yybegin(YYINITIAL); return KTypes.SYNTAX; }
 <YYINITIAL> {ASSIGN}                           { yybegin(YYINITIAL); return KTypes.ASSIGN; }
-<YYINITIAL> {OR_SIGN}                           { yybegin(YYINITIAL); return KTypes.OR_SIGN; }
+<YYINITIAL> {SPECIAL_SIGN}                           { yybegin(YYINITIAL); return KTypes.SPECIAL_SIGN; }
 <YYINITIAL> {RULE}                           { yybegin(YYINITIAL); return KTypes.RULE; }
 <YYINITIAL> {ENDMODULE}                           { yybegin(YYINITIAL); return KTypes.ENDMODULE; }
 <YYINITIAL> {TYPE}                           { yybegin(YYINITIAL); return KTypes.TYPE; }
-<YYINITIAL> {SIGN}                           { yybegin(YYINITIAL); return KTypes.SIGN; }
+<YYINITIAL> {STRING_VALUE}                           { yybegin(YYINITIAL); return KTypes.STRING_VALUE; }
 <YYINITIAL> {OPTION}                           { yybegin(YYINITIAL); return KTypes.OPTION; }
-<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return KTypes.COMMENT; }
+<YYINITIAL> {COMMENT}                           { yybegin(YYINITIAL); return KTypes.COMMENT; }
 
 //<WAITING_VALUE> {CRLF}({CRLF}|{WS})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 //<WAITING_VALUE> {WS}+                               { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
