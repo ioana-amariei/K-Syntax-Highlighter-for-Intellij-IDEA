@@ -14,15 +14,29 @@ import java.util.List;
  * Created by AMI on 2017-12-23.
  */
 
-
 public class KCompletionContributor extends CompletionContributor {
     private static final List <String> suggestions =
             Arrays.asList(
-                    "module");
+                    "module",
+                    "endmodule",
+                    "rule",
+                    "left",
+                    "right",
+                    "bracket",
+                    "strict",
+                    "::=",
+                    "syntax",
+                    "imports",
+                    "require",
+                    "configuration",
+                    "Id",
+                    "Int",
+                    "String",
+                    "Float");
 
     public KCompletionContributor() {
         extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement(KTypes.MODULE).withLanguage(KLanguage.INSTANCE),
+                PlatformPatterns.psiElement(KTypes.VALUE).withLanguage(KLanguage.INSTANCE),
                 new CompletionProvider <CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,

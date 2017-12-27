@@ -36,14 +36,22 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KRuleBlockImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KStatementImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KSyntaxBlockImpl.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KCompletionContributor$1.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KCompletionContributor$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KCompletionContributor.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KCompletionContributor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KLexer.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KLexer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KSyntaxHighlighter.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KSyntaxHighlighter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/parser/KParser.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/parser/KParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KExpressionBlock.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KExpressionBlock.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes$Factory.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes$Factory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KVisitor.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KVisitor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KExpressionBlockImpl.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KExpressionBlockImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/K.bnf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.flex" afterPath="$PROJECT_DIR$/src/com/kplugin/K.flex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" afterPath="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java" afterPath="$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +70,8 @@
       <file leaf-file-name="K.bnf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+            <state relative-caret-position="1242">
+              <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
               <folding>
                 <element signature="e#0#372#0" expanded="true" />
               </folding>
@@ -71,11 +79,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="K.flex" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KCompletionContributor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-81">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KSyntaxHighlighter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1431">
+              <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="K.flex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-319">
-              <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+            <state relative-caret-position="432">
+              <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -146,11 +174,11 @@
         <option value="$PROJECT_DIR$/src/com/kplugin/KColorSettingsPage.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/gen/com/kplugin/psi/KTypes.java" />
-        <option value="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
-        <option value="$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/KParserDefinition.java" />
-        <option value="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
+        <option value="$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/K.flex" />
+        <option value="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
+        <option value="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
       </list>
     </option>
   </component>
@@ -239,13 +267,13 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\facultate\an2\sem1\plp\principles-of-programming-languages\MyPlugin\src\com\kplugin\icons" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.kplugin.parser" />
       <recent name="MypackageName" />
       <recent name="MyPackage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\facultate\an2\sem1\plp\principles-of-programming-languages\MyPlugin\src\com\kplugin\icons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -490,7 +518,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="89" y="-9" width="1840" height="1098" extended-state="6" />
+    <frame x="89" y="-9" width="1840" height="1098" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -676,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/psi/tree/IElementType.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -708,22 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1593">
           <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KParserDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="41" lean-forward="true" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="54" column="50" lean-forward="false" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -770,20 +775,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KParserDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+        <state relative-caret-position="1242">
+          <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
           <folding>
             <element signature="e#0#372#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        <state relative-caret-position="-81">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1431">
+          <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
           <folding />
         </state>
       </provider>
