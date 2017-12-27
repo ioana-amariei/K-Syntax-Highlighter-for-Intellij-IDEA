@@ -8,12 +8,15 @@ import com.intellij.psi.PsiElement;
 public interface KModuleBody extends PsiElement {
 
   @NotNull
-  KImportsBlock getImportsBlock();
+  List<KConfigurationBlock> getConfigurationBlockList();
 
-  @Nullable
-  KRuleBlock getRuleBlock();
+  @NotNull
+  List<KImportsBlock> getImportsBlockList();
 
-  @Nullable
-  KSyntaxBlock getSyntaxBlock();
+  @NotNull
+  List<KRuleBlock> getRuleBlockList();
+
+  @NotNull
+  List<KSyntaxBlock> getSyntaxBlockList();
 
 }

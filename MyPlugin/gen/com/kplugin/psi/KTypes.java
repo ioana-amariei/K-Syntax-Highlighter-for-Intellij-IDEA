@@ -8,6 +8,10 @@ import com.kplugin.psi.impl.*;
 
 public interface KTypes {
 
+  IElementType CELL_ = new KElementType("CELL_");
+  IElementType CONDITION_ = new KElementType("CONDITION_");
+  IElementType CONFIGURATION_ = new KElementType("CONFIGURATION_");
+  IElementType CONFIGURATION_BLOCK = new KElementType("CONFIGURATION_BLOCK");
   IElementType EXPRESSION_ = new KElementType("EXPRESSION_");
   IElementType EXPRESSION_BLOCK = new KElementType("EXPRESSION_BLOCK");
   IElementType HEADER_BLOCK = new KElementType("HEADER_BLOCK");
@@ -21,33 +25,51 @@ public interface KTypes {
   IElementType MODULE_START = new KElementType("MODULE_START");
   IElementType PRECEDENCE_ = new KElementType("PRECEDENCE_");
   IElementType PROPERTY = new KElementType("PROPERTY");
+  IElementType RULE_ = new KElementType("RULE_");
   IElementType RULE_BLOCK = new KElementType("RULE_BLOCK");
   IElementType STATEMENT = new KElementType("STATEMENT");
   IElementType SYNTAX_BLOCK = new KElementType("SYNTAX_BLOCK");
 
   IElementType ASSIGN = new KTokenType("ASSIGN");
   IElementType COMMENT = new KTokenType("COMMENT");
+  IElementType CONFIGURATION = new KTokenType("CONFIGURATION");
   IElementType CRLF = new KTokenType("CRLF");
   IElementType ENDMODULE = new KTokenType("ENDMODULE");
+  IElementType ID = new KTokenType("ID");
   IElementType IMPORTS = new KTokenType("IMPORTS");
   IElementType KEY = new KTokenType("KEY");
   IElementType MODULE = new KTokenType("MODULE");
   IElementType MODULE_NAME = new KTokenType("MODULE_NAME");
   IElementType OPTION = new KTokenType("OPTION");
+  IElementType PGM = new KTokenType("PGM");
   IElementType REQUIRE = new KTokenType("REQUIRE");
   IElementType RULE = new KTokenType("RULE");
   IElementType SEPARATOR = new KTokenType("SEPARATOR");
   IElementType SPECIAL_SIGN = new KTokenType("SPECIAL_SIGN");
+  IElementType STRING = new KTokenType("STRING");
   IElementType STRING_VALUE = new KTokenType("STRING_VALUE");
   IElementType SYNTAX = new KTokenType("SYNTAX");
   IElementType TYPE = new KTokenType("TYPE");
   IElementType VALUE = new KTokenType("VALUE");
+  IElementType WHEN = new KTokenType("WHEN");
   IElementType WS = new KTokenType("WS");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == EXPRESSION_) {
+       if (type == CELL_) {
+        return new KCell_Impl(node);
+      }
+      else if (type == CONDITION_) {
+        return new KCondition_Impl(node);
+      }
+      else if (type == CONFIGURATION_) {
+        return new KConfiguration_Impl(node);
+      }
+      else if (type == CONFIGURATION_BLOCK) {
+        return new KConfigurationBlockImpl(node);
+      }
+      else if (type == EXPRESSION_) {
         return new KExpression_Impl(node);
       }
       else if (type == EXPRESSION_BLOCK) {
@@ -85,6 +107,9 @@ public interface KTypes {
       }
       else if (type == PROPERTY) {
         return new KPropertyImpl(node);
+      }
+      else if (type == RULE_) {
+        return new KRule_Impl(node);
       }
       else if (type == RULE_BLOCK) {
         return new KRuleBlockImpl(node);

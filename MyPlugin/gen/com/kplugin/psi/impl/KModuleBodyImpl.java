@@ -28,20 +28,26 @@ public class KModuleBodyImpl extends ASTWrapperPsiElement implements KModuleBody
 
   @Override
   @NotNull
-  public KImportsBlock getImportsBlock() {
-    return findNotNullChildByClass(KImportsBlock.class);
+  public List<KConfigurationBlock> getConfigurationBlockList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, KConfigurationBlock.class);
   }
 
   @Override
-  @Nullable
-  public KRuleBlock getRuleBlock() {
-    return findChildByClass(KRuleBlock.class);
+  @NotNull
+  public List<KImportsBlock> getImportsBlockList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, KImportsBlock.class);
   }
 
   @Override
-  @Nullable
-  public KSyntaxBlock getSyntaxBlock() {
-    return findChildByClass(KSyntaxBlock.class);
+  @NotNull
+  public List<KRuleBlock> getRuleBlockList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, KRuleBlock.class);
+  }
+
+  @Override
+  @NotNull
+  public List<KSyntaxBlock> getSyntaxBlockList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, KSyntaxBlock.class);
   }
 
 }

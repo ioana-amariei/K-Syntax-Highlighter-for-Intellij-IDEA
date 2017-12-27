@@ -15,6 +15,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleBody.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleEnd.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleStart.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KPrecedence_.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KProperty.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KRuleBlock.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KStatement.java" afterPath="" />
@@ -32,6 +33,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleBodyImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleEndImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleStartImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KPrecedence_Impl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KPropertyImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KRuleBlockImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KStatementImpl.java" afterPath="" />
@@ -41,11 +43,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KLexer.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KLexer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KSyntaxHighlighter.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KSyntaxHighlighter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/parser/KParser.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/parser/KParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KExpressionBlock.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KExpressionBlock.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KModuleBody.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KModuleBody.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KRuleBlock.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KRuleBlock.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes$Factory.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes$Factory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KVisitor.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KVisitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KExpressionBlockImpl.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KExpressionBlockImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KModuleBodyImpl.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KModuleBodyImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KRuleBlockImpl.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KRuleBlockImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/K.bnf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
@@ -67,11 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="K.bnf" pinned="false" current-in-tab="false">
+      <file leaf-file-name="K.bnf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+            <state relative-caret-position="-29">
+              <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding>
                 <element signature="e#0#372#0" expanded="true" />
               </folding>
@@ -79,31 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KCompletionContributor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-81">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KSyntaxHighlighter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1431">
-              <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="K.flex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+            <state relative-caret-position="1053">
+              <caret line="39" column="50" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -175,10 +159,10 @@
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/gen/com/kplugin/psi/KTypes.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/KParserDefinition.java" />
+        <option value="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/K.flex" />
         <option value="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
-        <option value="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
       </list>
     </option>
   </component>
@@ -518,7 +502,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="89" y="-9" width="1840" height="1098" extended-state="7" />
+    <frame x="89" y="-9" width="1840" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -733,14 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KLexerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen/com/kplugin/psi/impl/KHeaders_Impl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -783,37 +759,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="63" column="27" lean-forward="false" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KLexerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+        <state relative-caret-position="1053">
+          <caret line="39" column="50" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+        <state relative-caret-position="-29">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
           <folding>
             <element signature="e#0#372#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1431">
-          <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -11,14 +11,14 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KRuleBlockImpl extends ASTWrapperPsiElement implements KRuleBlock {
+public class KConfigurationBlockImpl extends ASTWrapperPsiElement implements KConfigurationBlock {
 
-  public KRuleBlockImpl(ASTNode node) {
+  public KConfigurationBlockImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitRuleBlock(this);
+    visitor.visitConfigurationBlock(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,8 +28,8 @@ public class KRuleBlockImpl extends ASTWrapperPsiElement implements KRuleBlock {
 
   @Override
   @NotNull
-  public List<KRule_> getRule_List() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KRule_.class);
+  public List<KConfiguration_> getConfiguration_List() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, KConfiguration_.class);
   }
 
 }

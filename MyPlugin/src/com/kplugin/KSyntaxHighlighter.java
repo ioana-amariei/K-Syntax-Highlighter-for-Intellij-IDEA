@@ -60,6 +60,8 @@ public class KSyntaxHighlighter extends SyntaxHighlighterBase {
             return KEY_KEYS;
         } else if (tokenType.equals(KTypes.TYPE)) {
             return VALUE_KEYS;
+        } else if (tokenType.equals(KTypes.CONFIGURATION)) {
+            return KEY_KEYS;
         } else if (tokenType.equals(KTypes.STRING_VALUE)) {
             return SEPARATOR_KEYS;
         } else if (tokenType.equals(KTypes.ASSIGN)) {

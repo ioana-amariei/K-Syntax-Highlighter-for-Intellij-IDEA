@@ -14,7 +14,7 @@
 }
 
 
-kFile ::= (CRLF|WS|COMMENT)* header_block (CRLF|WS|COMMENT)* (module_definition CRLF*)+
+kFile ::= (CRLF|WS|COMMENT)* header_block (module_definition CRLF*)+
 
 header_block ::= header_line*
 
@@ -24,20 +24,19 @@ private module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* modu
 
 module_start ::= WS* MODULE WS+ MODULE_NAME WS* CRLF*
 
-module_body ::= (imports_block (CRLF|WS|COMMENT)* syntax_block (CRLF|WS|COMMENT)* )
-              | (imports_block (CRLF|WS|COMMENT)* rule_block (CRLF|WS|COMMENT)* )
-
-module_end ::= ENDMODULE CRLF*
+module_body ::= ((imports_block (CRLF|WS|COMMENT)* syntax_block  (CRLF|WS|COMMENT)*)
+                | (imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
+                |(imports_block (CRLF|WS|COMMENT)* configuration_block  (CRLF|WS|COMMENT)*))+
 
 imports_block ::= imports_line*
 
 imports_line ::= WS* IMPORTS WS+ MODULE_NAME WS* CRLF*
 
-syntax_block ::= (WS* statement CRLF*)+
+syntax_block ::= (WS* SYNTAX WS+ statement CRLF*)+
 
-statement ::= SYNTAX WS+ TYPE WS+ ASSIGN WS+ expression_block
+statement ::= TYPE WS+ ASSIGN WS+ expression_block
 
-expression_block ::= (WS* expression_ WS* list_options? CRLF* WS* (SPECIAL_SIGN? | precedence_))+
+expression_block ::= (WS* expression_ WS* list_options? CRLF* WS* (SPECIAL_SIGN | precedence_)?)+
 
 expression_ ::=   STRING_VALUE
                 | TYPE
@@ -48,9 +47,24 @@ precedence_ ::= SPECIAL_SIGN WS* (OPTION | TYPE) WS*  SPECIAL_SIGN? CRLF*
 
 list_options ::= OPTION
 
-rule_block ::= RULE
+rule_block ::= (WS* RULE WS* rule_ CRLF*)+
+
+           // rule I1:Int + I2:Int => I1 +Int I2
+rule_ ::= ((ID SPECIAL_SIGN TYPE  WS* SPECIAL_SIGN? WS*)+ WS* ID WS* SPECIAL_SIGN TYPE? WS* ID CRLF* condition_? WS* OPTION?)
+        | ((STRING WS*)+ WS* ID (SPECIAL_SIGN TYPE)? WS* STRING WS* ID (SPECIAL_SIGN TYPE)? WS* SPECIAL_SIGN WS* ID (SPECIAL_SIGN TYPE)? WS* OPTION?)
+        | (ID? SPECIAL_SIGN? TYPE? WS* (SPECIAL_SIGN WS*) OPTION?)*
+
+condition_ ::= WS* WHEN WS* ID WS* SPECIAL_SIGN TYPE WS* ID
+
+configuration_block ::= (WS* CONFIGURATION WS* configuration_ CRLF*)+
+
+// configuration <k> $PGM:Expressions </k>
+configuration_ ::= cell_ WS* SPECIAL_SIGN? WS* PGM WS* SPECIAL_SIGN TYPE WS* cell_
+
+cell_ ::= WS* SPECIAL_SIGN* WS* STRING WS* SPECIAL_SIGN
+
+module_end ::= ENDMODULE CRLF*
 
 item_ ::= (property|COMMENT|CRLF)
 
 property ::= (KEY? SEPARATOR VALUE?) | KEY
-
