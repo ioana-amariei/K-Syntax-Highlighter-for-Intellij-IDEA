@@ -51,10 +51,17 @@ rule_block ::= (WS* RULE WS* rule_ CRLF*)+
 
            // rule I1:Int + I2:Int => I1 +Int I2
 rule_ ::= ((ID SPECIAL_SIGN TYPE  WS* SPECIAL_SIGN? WS*)+ WS* ID WS* SPECIAL_SIGN TYPE? WS* ID CRLF* condition_? WS* OPTION?)
-        | ((STRING WS*)+ WS* ID (SPECIAL_SIGN TYPE)? WS* STRING WS* ID (SPECIAL_SIGN TYPE)? WS* SPECIAL_SIGN WS* ID (SPECIAL_SIGN TYPE)? WS* OPTION?)
+        | ((STRING WS*)+ WS* ID (SPECIAL_SIGN TYPE)? WS* STRING WS* ID (SPECIAL_SIGN TYPE)? WS* SPECIAL_SIGN WS* ID (SPECIAL_SIGN TYPE)? WS* OPTION?)  // rule if true  B1 else _  => B1
+        | (SPECIAL_SIGN WS*)+ //  rule {} => .
+        | ((STRING | SPECIAL_SIGN | ID | TYPE) WS*)+ // rule while C { S }=> if C { S while C { S } } else {}
         | (ID? SPECIAL_SIGN? TYPE? WS* (SPECIAL_SIGN WS*) OPTION?)*
 
 condition_ ::= WS* WHEN WS* ID WS* SPECIAL_SIGN TYPE WS* ID
+
+
+
+
+
 
 // configuration <k> $PGM:Expressions </k>
 /*

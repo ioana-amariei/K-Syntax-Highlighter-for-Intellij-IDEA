@@ -4,7 +4,9 @@
     <list default="true" id="01059847-11fe-42da-b14d-db00e6ed12a4" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/KLexer.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/parser/KParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCell_.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCellContent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCellEnd.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCellStart.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCondition_.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KConfigurationBlock.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KConfiguration_.java" afterPath="" />
@@ -27,7 +29,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KSyntaxBlock.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KTypes.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KVisitor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCell_Impl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCellContentImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCellEndImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCellStartImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCondition_Impl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KConfigurationBlockImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KConfiguration_Impl.java" afterPath="" />
@@ -48,23 +52,10 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KRule_Impl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KStatementImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KSyntaxBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KCell_.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KCell_Impl.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MyPlugin.iml" afterPath="$PROJECT_DIR$/k-syntax-highlighter.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KCompletionContributor.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KCompletionContributor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KLexer.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/KLexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/parser/KParser.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/parser/KParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KConfiguration_.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KConfiguration_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes$Factory.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes$Factory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KTypes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KVisitor.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/KVisitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KConfiguration_Impl.class" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/psi/impl/KConfiguration_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/parser/KParser.class" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/parser/KParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/out/production/MyPlugin/com/kplugin/K.bnf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/K.bnf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.flex" afterPath="$PROJECT_DIR$/src/com/kplugin/K.flex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" afterPath="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,11 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="K.bnf" pinned="false" current-in-tab="false">
+      <file leaf-file-name="K.bnf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1593">
-              <caret line="72" column="58" lean-forward="false" selection-start-line="72" selection-start-column="58" selection-end-line="72" selection-end-column="58" />
+            <state relative-caret-position="324">
+              <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
               <folding>
                 <element signature="e#0#372#0" expanded="true" />
               </folding>
@@ -92,31 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KCompletionContributor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1107">
-              <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompletionType.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/codeInsight/completion/CompletionType.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="K.flex" pinned="false" current-in-tab="true">
+      <file leaf-file-name="K.flex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+            <state relative-caret-position="162">
+              <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -190,8 +161,8 @@
         <option value="$PROJECT_DIR$/src/com/kplugin/KParserDefinition.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/KSyntaxHighlighter.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/K.flex" />
-        <option value="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
         <option value="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
+        <option value="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
       </list>
     </option>
   </component>
@@ -203,9 +174,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1001" />
-    <option name="width" value="927" />
-    <option name="height" value="1088" />
+    <option name="x" value="89" />
+    <option name="y" value="-9" />
+    <option name="width" value="1840" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -223,8 +195,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -257,7 +228,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -530,7 +502,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1001" y="0" width="927" height="1088" extended-state="0" />
+    <frame x="89" y="-9" width="1840" height="1098" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -542,33 +515,35 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973894" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858709" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49705535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23893303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973894" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997833" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973894" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="189" y="91" width="1640" height="898" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -576,20 +551,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/old/TextBoxes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KFileType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen/com/kplugin/KLexerAdapter.java" />
     <entry file="file://$PROJECT_DIR$/out/production/MyPlugin/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -767,49 +728,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KLexerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCell_Impl.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#204#205#0" expanded="false" />
-            <element signature="e#252#253#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-14">
+          <caret line="1023" column="29" lean-forward="false" selection-start-line="1023" selection-start-column="29" selection-end-line="1023" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCell_Impl.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Long.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="1059" column="22" lean-forward="false" selection-start-line="1059" selection-start-column="22" selection-end-line="1059" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/codeInsight/completion/CompletionType.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
+        <state relative-caret-position="850">
           <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/KLexerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1593">
-          <caret line="72" column="58" lean-forward="false" selection-start-line="72" selection-start-column="58" selection-end-line="72" selection-end-column="58" />
+        <state relative-caret-position="270">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
-            <element signature="e#0#372#0" expanded="true" />
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+        <state relative-caret-position="162">
+          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#372#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
