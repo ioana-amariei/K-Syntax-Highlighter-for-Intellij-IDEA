@@ -7,4 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface KExpression_ extends PsiElement {
 
+  @Nullable
+  KPrecedence_ getPrecedence_();
+
 }

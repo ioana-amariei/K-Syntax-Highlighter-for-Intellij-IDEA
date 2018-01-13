@@ -38,10 +38,4 @@ public class KExpressionBlockImpl extends ASTWrapperPsiElement implements KExpre
     return PsiTreeUtil.getChildrenOfTypeAsList(this, KListOptions.class);
   }
 
-  @Override
-  @NotNull
-  public List<KPrecedence_> getPrecedence_List() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KPrecedence_.class);
-  }
-
 }

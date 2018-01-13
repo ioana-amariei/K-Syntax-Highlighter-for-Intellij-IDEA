@@ -26,4 +26,10 @@ public class KExpression_Impl extends ASTWrapperPsiElement implements KExpressio
     else super.accept(visitor);
   }
 
+  @Override
+  @Nullable
+  public KPrecedence_ getPrecedence_() {
+    return findChildByClass(KPrecedence_.class);
+  }
+
 }

@@ -37,11 +37,11 @@ WHEN=when
 ASSIGN="::="
 TYPE=Int | String | Float | Id | Map | List | {SORT_NAME}
 SORT_NAME=[A-Z]+[a-z]*
-SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "<" | "=>" | "." | "{" |  "}"
+SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "*" | "<" | "=>" | "." | "{" |  "}"
            | "<=" | "|->" | ";" | "~>" | "..." | "/" | "=/=" | "%" | "[" | "]"
            | "$" | "="
-OPTION= \[(({KEYWORD}|[a-z]+)([ ,]?)*)+\] | {KEYWORD}
-KEYWORD=  bracket | left | right | strict | strict\({NUMBER}\)
+OPTION=\[(({KEYWORD}|[a-z]+)([ ,]?)*)+\] | {KEYWORD}
+KEYWORD=bracket | left | right | strict | strict\({NUMBER}\)
 STRING=[A-Za-z]+
 NUMBER=[12]
 

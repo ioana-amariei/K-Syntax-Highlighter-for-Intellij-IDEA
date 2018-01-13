@@ -736,15 +736,16 @@ public class KParser implements PsiParser, LightPsiParser {
   //                 | TYPE
   //                 | (TYPE WS* STRING_VALUE? WS* TYPE)
   //                 |(STRING_VALUE WS* (TYPE WS*)* WS* STRING_VALUE (TYPE WS*)*)
+  //                 | precedence_
   public static boolean expression_(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression_")) return false;
-    if (!nextTokenIs(b, "<expression>", STRING_VALUE, TYPE)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, EXPRESSION_, "<expression>");
     r = consumeToken(b, STRING_VALUE);
     if (!r) r = consumeToken(b, TYPE);
     if (!r) r = expression__2(b, l + 1);
     if (!r) r = expression__3(b, l + 1);
+    if (!r) r = precedence_(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -904,7 +905,7 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (WS* expression_ WS* list_options? CRLF* WS* (SPECIAL_SIGN | precedence_)?)+
+  // (WS* expression_  WS* list_options? CRLF* WS* SPECIAL_SIGN?)+
   public static boolean expression_block(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression_block")) return false;
     boolean r;
@@ -920,7 +921,7 @@ public class KParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // WS* expression_ WS* list_options? CRLF* WS* (SPECIAL_SIGN | precedence_)?
+  // WS* expression_  WS* list_options? CRLF* WS* SPECIAL_SIGN?
   private static boolean expression_block_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression_block_0")) return false;
     boolean r;
@@ -991,22 +992,11 @@ public class KParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // (SPECIAL_SIGN | precedence_)?
+  // SPECIAL_SIGN?
   private static boolean expression_block_0_6(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression_block_0_6")) return false;
-    expression_block_0_6_0(b, l + 1);
+    consumeToken(b, SPECIAL_SIGN);
     return true;
-  }
-
-  // SPECIAL_SIGN | precedence_
-  private static boolean expression_block_0_6_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "expression_block_0_6_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, SPECIAL_SIGN);
-    if (!r) r = precedence_(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
   }
 
   /* ********************************************************** */
@@ -1694,20 +1684,25 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // SPECIAL_SIGN WS* (OPTION | TYPE) WS*  SPECIAL_SIGN? CRLF*
+  // SPECIAL_SIGN? WS* OPTION WS* SPECIAL_SIGN
   public static boolean precedence_(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "precedence_")) return false;
-    if (!nextTokenIs(b, SPECIAL_SIGN)) return false;
     boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, SPECIAL_SIGN);
+    Marker m = enter_section_(b, l, _NONE_, PRECEDENCE_, "<precedence>");
+    r = precedence__0(b, l + 1);
     r = r && precedence__1(b, l + 1);
-    r = r && precedence__2(b, l + 1);
+    r = r && consumeToken(b, OPTION);
     r = r && precedence__3(b, l + 1);
-    r = r && precedence__4(b, l + 1);
-    r = r && precedence__5(b, l + 1);
-    exit_section_(b, m, PRECEDENCE_, r);
+    r = r && consumeToken(b, SPECIAL_SIGN);
+    exit_section_(b, l, m, r, false, null);
     return r;
+  }
+
+  // SPECIAL_SIGN?
+  private static boolean precedence__0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "precedence__0")) return false;
+    consumeToken(b, SPECIAL_SIGN);
+    return true;
   }
 
   // WS*
@@ -1722,17 +1717,6 @@ public class KParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // OPTION | TYPE
-  private static boolean precedence__2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "precedence__2")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, OPTION);
-    if (!r) r = consumeToken(b, TYPE);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
   // WS*
   private static boolean precedence__3(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "precedence__3")) return false;
@@ -1740,25 +1724,6 @@ public class KParser implements PsiParser, LightPsiParser {
     while (true) {
       if (!consumeToken(b, WS)) break;
       if (!empty_element_parsed_guard_(b, "precedence__3", c)) break;
-      c = current_position_(b);
-    }
-    return true;
-  }
-
-  // SPECIAL_SIGN?
-  private static boolean precedence__4(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "precedence__4")) return false;
-    consumeToken(b, SPECIAL_SIGN);
-    return true;
-  }
-
-  // CRLF*
-  private static boolean precedence__5(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "precedence__5")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!consumeToken(b, CRLF)) break;
-      if (!empty_element_parsed_guard_(b, "precedence__5", c)) break;
       c = current_position_(b);
     }
     return true;

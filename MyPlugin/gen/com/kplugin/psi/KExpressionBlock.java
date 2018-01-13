@@ -13,7 +13,4 @@ public interface KExpressionBlock extends PsiElement {
   @NotNull
   List<KListOptions> getListOptionsList();
 
-  @NotNull
-  List<KPrecedence_> getPrecedence_List();
-
 }
