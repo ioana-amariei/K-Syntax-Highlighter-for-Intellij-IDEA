@@ -14,6 +14,7 @@ public interface KTypes {
   IElementType CONDITION_ = new KElementType("CONDITION_");
   IElementType CONFIGURATION_ = new KElementType("CONFIGURATION_");
   IElementType CONFIGURATION_BLOCK = new KElementType("CONFIGURATION_BLOCK");
+  IElementType CONTENT = new KElementType("CONTENT");
   IElementType EXPRESSION_ = new KElementType("EXPRESSION_");
   IElementType EXPRESSION_BLOCK = new KElementType("EXPRESSION_BLOCK");
   IElementType HEADER_BLOCK = new KElementType("HEADER_BLOCK");
@@ -29,6 +30,7 @@ public interface KTypes {
   IElementType PROPERTY = new KElementType("PROPERTY");
   IElementType RULE_ = new KElementType("RULE_");
   IElementType RULE_BLOCK = new KElementType("RULE_BLOCK");
+  IElementType SPECIAL_RULE = new KElementType("SPECIAL_RULE");
   IElementType STATEMENT = new KElementType("STATEMENT");
   IElementType SYNTAX_BLOCK = new KElementType("SYNTAX_BLOCK");
 
@@ -77,6 +79,9 @@ public interface KTypes {
       else if (type == CONFIGURATION_BLOCK) {
         return new KConfigurationBlockImpl(node);
       }
+      else if (type == CONTENT) {
+        return new KContentImpl(node);
+      }
       else if (type == EXPRESSION_) {
         return new KExpression_Impl(node);
       }
@@ -121,6 +126,9 @@ public interface KTypes {
       }
       else if (type == RULE_BLOCK) {
         return new KRuleBlockImpl(node);
+      }
+      else if (type == SPECIAL_RULE) {
+        return new KSpecialRuleImpl(node);
       }
       else if (type == STATEMENT) {
         return new KStatementImpl(node);

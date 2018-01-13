@@ -19,7 +19,7 @@ WS=[\ \n\t\f\s]
 FIRST_VALUE_CHARACTER=[^ \n\f\\] | "\\"{CRLF} | "\\".
 VALUE_CHARACTER=[^\n\f\\] | "\\"{CRLF} | "\\".
 //COMMENT=("#"|"!")[^\r\n]*
-COMMENT=(\/\*.*?\*\/) | (\/\/.*?)
+COMMENT= (\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\/) | (\/\/.*?)
 SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
 MODULE=module
@@ -32,14 +32,14 @@ SYNTAX=syntax
 RULE=rule
 ID=([A-Z][0-9]) | [0-9] | "_" | [A-Z]
 CONFIGURATION=configuration
-STRING_VALUE= \"[a-z0-9(){}*!=></%+;\-\[\]&|]*\"
+STRING_VALUE= \"[a-zA-Z0-9(){}*!=></%+;\-\[\]&|]*\"
 WHEN=when
 ASSIGN="::="
 TYPE=Int | String | Float | Id | Map | List | {SORT_NAME}
 SORT_NAME=[A-Z]+[a-z]*
 SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "*" | "<" | "=>" | "." | "{" |  "}"
            | "<=" | "|->" | ";" | "~>" | "..." | "/" | "=/=" | "%" | "[" | "]"
-           | "$" | "="
+           | "$" | "=" | "(" | ")" | "!"
 OPTION=\[(({KEYWORD}|[a-z]+)([ ,]?)*)+\] | {KEYWORD}
 KEYWORD=bracket | left | right | strict | strict\({NUMBER}\)
 STRING=[A-Za-z]+

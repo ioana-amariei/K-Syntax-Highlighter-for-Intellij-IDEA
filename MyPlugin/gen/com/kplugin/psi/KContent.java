@@ -5,12 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface KRule_ extends PsiElement {
-
-  @Nullable
-  KCondition_ getCondition_();
-
-  @NotNull
-  List<KSpecialRule> getSpecialRuleList();
+public interface KContent extends PsiElement {
 
 }

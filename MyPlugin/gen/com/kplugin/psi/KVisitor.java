@@ -31,6 +31,10 @@ public class KVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitContent(@NotNull KContent o) {
+    visitPsiElement(o);
+  }
+
   public void visitExpression_(@NotNull KExpression_ o) {
     visitPsiElement(o);
   }
@@ -88,6 +92,10 @@ public class KVisitor extends PsiElementVisitor {
   }
 
   public void visitRuleBlock(@NotNull KRuleBlock o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSpecialRule(@NotNull KSpecialRule o) {
     visitPsiElement(o);
   }
 

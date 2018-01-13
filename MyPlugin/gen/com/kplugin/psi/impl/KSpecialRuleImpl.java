@@ -11,19 +11,31 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KRule_Impl extends ASTWrapperPsiElement implements KRule_ {
+public class KSpecialRuleImpl extends ASTWrapperPsiElement implements KSpecialRule {
 
-  public KRule_Impl(ASTNode node) {
+  public KSpecialRuleImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitRule_(this);
+    visitor.visitSpecialRule(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KVisitor) accept((KVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @NotNull
+  public KCellEnd getCellEnd() {
+    return findNotNullChildByClass(KCellEnd.class);
+  }
+
+  @Override
+  @NotNull
+  public KCellStart getCellStart() {
+    return findNotNullChildByClass(KCellStart.class);
   }
 
   @Override
@@ -34,8 +46,8 @@ public class KRule_Impl extends ASTWrapperPsiElement implements KRule_ {
 
   @Override
   @NotNull
-  public List<KSpecialRule> getSpecialRuleList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KSpecialRule.class);
+  public KContent getContent() {
+    return findNotNullChildByClass(KContent.class);
   }
 
 }

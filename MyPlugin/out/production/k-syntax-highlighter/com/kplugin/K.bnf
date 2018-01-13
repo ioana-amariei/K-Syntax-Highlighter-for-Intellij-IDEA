@@ -58,7 +58,7 @@ expression_ ::=   STRING_VALUE
 
 // > Stmt:
 // > left:
-precedence_ ::= SPECIAL_SIGN? WS* OPTION WS* SPECIAL_SIGN
+precedence_ ::= SPECIAL_SIGN? WS* (OPTION | TYPE) WS* SPECIAL_SIGN
 
 list_options ::= OPTION
 
@@ -68,11 +68,25 @@ rule_block ::= (WS* RULE WS* rule_ CRLF*)+
 rule_ ::= ((ID SPECIAL_SIGN TYPE  WS* SPECIAL_SIGN? WS*)+ WS* ID WS* SPECIAL_SIGN TYPE? WS* ID CRLF* condition_? WS* OPTION?)
         | ((STRING WS*)+ WS* ID (SPECIAL_SIGN TYPE)? WS* STRING WS* ID (SPECIAL_SIGN TYPE)? WS* SPECIAL_SIGN WS* ID (SPECIAL_SIGN TYPE)? WS* OPTION?)  // rule if true  B1 else _  => B1
         | ((STRING | SPECIAL_SIGN | ID | TYPE) WS*)+ // rule while C { S }=> if C { S while C { S } } else {}
+        | special_rule+
         | (ID? SPECIAL_SIGN? TYPE? WS* (SPECIAL_SIGN WS*) OPTION?)*
 
-condition_ ::= WS* WHEN WS* ID WS* SPECIAL_SIGN TYPE WS* ID
+condition_ ::= WS* WHEN WS* (ID WS* SPECIAL_SIGN TYPE WS* ID) | (STRING | SPECIAL_SIGN | WS)*
+/*
+  rule <k> (int X:Id ; => .) ...</k>
+       <env> M:Map (.Map => (X |-> 0)) </env>
+       when notBool(X in keys(M))
 
-// configuration <k> $PGM:Expressions </k>
+  rule <k> (X:Id => V) ...</k>
+       <env>... X |-> V:Int ...</env>
+
+  rule <k> (X:Id = V:Int ; => .) ...</k>
+       <env>... X |-> (_ => V) </env>
+*/
+
+special_rule ::= (CRLF|WS)* cell_start (CRLF|WS)* content (CRLF|WS)* cell_end (CRLF|WS)* COMMENT* (CRLF|WS)* condition_? (CRLF|WS)*
+
+content ::= WS* (SPECIAL_SIGN | ID | WS)+ WS*
 /*
  configuration
             <T>

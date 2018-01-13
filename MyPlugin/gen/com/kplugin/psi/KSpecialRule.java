@@ -5,12 +5,18 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface KRule_ extends PsiElement {
+public interface KSpecialRule extends PsiElement {
+
+  @NotNull
+  KCellEnd getCellEnd();
+
+  @NotNull
+  KCellStart getCellStart();
 
   @Nullable
   KCondition_ getCondition_();
 
   @NotNull
-  List<KSpecialRule> getSpecialRuleList();
+  KContent getContent();
 
 }

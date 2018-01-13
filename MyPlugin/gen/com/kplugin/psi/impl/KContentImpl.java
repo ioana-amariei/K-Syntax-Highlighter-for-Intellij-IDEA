@@ -11,31 +11,19 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KRule_Impl extends ASTWrapperPsiElement implements KRule_ {
+public class KContentImpl extends ASTWrapperPsiElement implements KContent {
 
-  public KRule_Impl(ASTNode node) {
+  public KContentImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitRule_(this);
+    visitor.visitContent(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KVisitor) accept((KVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @Nullable
-  public KCondition_ getCondition_() {
-    return findChildByClass(KCondition_.class);
-  }
-
-  @Override
-  @NotNull
-  public List<KSpecialRule> getSpecialRuleList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KSpecialRule.class);
   }
 
 }
