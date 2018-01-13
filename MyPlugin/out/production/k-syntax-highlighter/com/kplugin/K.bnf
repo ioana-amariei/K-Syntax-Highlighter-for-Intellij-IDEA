@@ -25,7 +25,7 @@ private module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* modu
 module_start ::= WS* MODULE WS+ MODULE_NAME WS* CRLF*
 
 module_body ::= ((imports_block (CRLF|WS|COMMENT)* syntax_block  (CRLF|WS|COMMENT)*)
-                | (imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
+                |(imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
                 |(imports_block (CRLF|WS|COMMENT)* configuration_block  (CRLF|WS|COMMENT)*))+
 
 imports_block ::= imports_line*
@@ -33,6 +33,18 @@ imports_block ::= imports_line*
 imports_line ::= WS* IMPORTS WS+ MODULE_NAME WS* CRLF*
 
 syntax_block ::= (WS* SYNTAX WS+ statement CRLF*)+
+
+/*
+  syntax Exp ::= Id
+               | Int
+           > left:
+             Exp "*" Exp [left]
+           | Exp "/" Exp [left]
+           > left:
+             Exp "+" Exp [left]
+           | Exp "-" Exp [left]
+           | "(" Exp ")" [bracket]
+*/
 
 statement ::= TYPE WS+ ASSIGN WS+ expression_block
 
@@ -56,11 +68,6 @@ rule_ ::= ((ID SPECIAL_SIGN TYPE  WS* SPECIAL_SIGN? WS*)+ WS* ID WS* SPECIAL_SIG
         | (ID? SPECIAL_SIGN? TYPE? WS* (SPECIAL_SIGN WS*) OPTION?)*
 
 condition_ ::= WS* WHEN WS* ID WS* SPECIAL_SIGN TYPE WS* ID
-
-
-
-
-
 
 // configuration <k> $PGM:Expressions </k>
 /*

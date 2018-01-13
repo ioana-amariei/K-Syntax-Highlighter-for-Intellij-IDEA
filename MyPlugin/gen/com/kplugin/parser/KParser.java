@@ -1275,7 +1275,7 @@ public class KParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // ((imports_block (CRLF|WS|COMMENT)* syntax_block  (CRLF|WS|COMMENT)*)
-  //                 | (imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
+  //                 |(imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
   //                 |(imports_block (CRLF|WS|COMMENT)* configuration_block  (CRLF|WS|COMMENT)*))+
   public static boolean module_body(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "module_body")) return false;
@@ -1293,7 +1293,7 @@ public class KParser implements PsiParser, LightPsiParser {
   }
 
   // (imports_block (CRLF|WS|COMMENT)* syntax_block  (CRLF|WS|COMMENT)*)
-  //                 | (imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
+  //                 |(imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
   //                 |(imports_block (CRLF|WS|COMMENT)* configuration_block  (CRLF|WS|COMMENT)*)
   private static boolean module_body_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "module_body_0")) return false;

@@ -32,11 +32,11 @@ SYNTAX=syntax
 RULE=rule
 ID=([A-Z][0-9]) | [0-9] | "_" | [A-Z]
 CONFIGURATION=configuration
-STRING_VALUE= \".*\"
+STRING_VALUE= \"[a-z0-9(){}*!=></%+;\-\[\]&|]*\"
 WHEN=when
 ASSIGN="::="
 TYPE=Int | String | Float | Id | Map | List | {SORT_NAME}
-SORT_NAME=[A-Z][a-z]*
+SORT_NAME=[A-Z]+[a-z]*
 SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "<" | "=>" | "." | "{" |  "}"
            | "<=" | "|->" | ";" | "~>" | "..." | "/" | "=/=" | "%" | "[" | "]"
            | "$" | "="
