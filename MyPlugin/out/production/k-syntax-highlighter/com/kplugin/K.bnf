@@ -24,9 +24,11 @@ private module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* modu
 
 module_start ::= WS* MODULE WS+ MODULE_NAME WS* CRLF*
 
-module_body ::= ((imports_block (CRLF|WS|COMMENT)* syntax_block  (CRLF|WS|COMMENT)*)
-                |(imports_block (CRLF|WS|COMMENT)* rule_block  (CRLF|WS|COMMENT)*)
-                |(imports_block (CRLF|WS|COMMENT)* configuration_block  (CRLF|WS|COMMENT)*))+
+module_body ::= (imports_block (CRLF|WS|COMMENT)* block_type  (CRLF|WS|COMMENT)*)+
+
+block_type ::= syntax_block
+            | rule_block
+            | configuration_block
 
 imports_block ::= imports_line*
 
@@ -84,7 +86,7 @@ condition_ ::= WS* WHEN WS* (ID WS* SPECIAL_SIGN TYPE WS* ID) | (STRING | SPECIA
        <env>... X |-> (_ => V) </env>
 */
 
-special_rule ::= (CRLF|WS)* cell_start (CRLF|WS)* content (CRLF|WS)* cell_end (CRLF|WS)* COMMENT* (CRLF|WS)* condition_? (CRLF|WS)*
+special_rule ::= (CRLF|WS)* cell_start (CRLF|WS)* content (CRLF|WS)* cell_end (CRLF|WS)* COMMENT* (CRLF|WS)* condition_* (CRLF|WS)*
 
 content ::= WS* (SPECIAL_SIGN | ID | WS)+ WS*
 /*

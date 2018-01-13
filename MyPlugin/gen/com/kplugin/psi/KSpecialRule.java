@@ -13,8 +13,8 @@ public interface KSpecialRule extends PsiElement {
   @NotNull
   KCellStart getCellStart();
 
-  @Nullable
-  KCondition_ getCondition_();
+  @NotNull
+  List<KCondition_> getCondition_List();
 
   @NotNull
   KContent getContent();

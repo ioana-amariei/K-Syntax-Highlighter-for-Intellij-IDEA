@@ -7,6 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public class KVisitor extends PsiElementVisitor {
 
+  public void visitBlockType(@NotNull KBlockType o) {
+    visitPsiElement(o);
+  }
+
   public void visitCellContent(@NotNull KCellContent o) {
     visitPsiElement(o);
   }

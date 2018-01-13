@@ -11,14 +11,14 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KSpecialRuleImpl extends ASTWrapperPsiElement implements KSpecialRule {
+public class KBlockTypeImpl extends ASTWrapperPsiElement implements KBlockType {
 
-  public KSpecialRuleImpl(ASTNode node) {
+  public KBlockTypeImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitSpecialRule(this);
+    visitor.visitBlockType(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -27,27 +27,21 @@ public class KSpecialRuleImpl extends ASTWrapperPsiElement implements KSpecialRu
   }
 
   @Override
-  @NotNull
-  public KCellEnd getCellEnd() {
-    return findNotNullChildByClass(KCellEnd.class);
+  @Nullable
+  public KConfigurationBlock getConfigurationBlock() {
+    return findChildByClass(KConfigurationBlock.class);
   }
 
   @Override
-  @NotNull
-  public KCellStart getCellStart() {
-    return findNotNullChildByClass(KCellStart.class);
+  @Nullable
+  public KRuleBlock getRuleBlock() {
+    return findChildByClass(KRuleBlock.class);
   }
 
   @Override
-  @NotNull
-  public List<KCondition_> getCondition_List() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KCondition_.class);
-  }
-
-  @Override
-  @NotNull
-  public KContent getContent() {
-    return findNotNullChildByClass(KContent.class);
+  @Nullable
+  public KSyntaxBlock getSyntaxBlock() {
+    return findChildByClass(KSyntaxBlock.class);
   }
 
 }

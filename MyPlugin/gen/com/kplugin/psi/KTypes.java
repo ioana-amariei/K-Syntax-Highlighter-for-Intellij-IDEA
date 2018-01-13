@@ -8,6 +8,7 @@ import com.kplugin.psi.impl.*;
 
 public interface KTypes {
 
+  IElementType BLOCK_TYPE = new KElementType("BLOCK_TYPE");
   IElementType CELL_CONTENT = new KElementType("CELL_CONTENT");
   IElementType CELL_END = new KElementType("CELL_END");
   IElementType CELL_START = new KElementType("CELL_START");
@@ -61,7 +62,10 @@ public interface KTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == CELL_CONTENT) {
+       if (type == BLOCK_TYPE) {
+        return new KBlockTypeImpl(node);
+      }
+      else if (type == CELL_CONTENT) {
         return new KCellContentImpl(node);
       }
       else if (type == CELL_END) {
