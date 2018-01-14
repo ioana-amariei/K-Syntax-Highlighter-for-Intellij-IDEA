@@ -10,6 +10,9 @@ public interface KRule_ extends PsiElement {
   @Nullable
   KCondition_ getCondition_();
 
+  @Nullable
+  KListOptions getListOptions();
+
   @NotNull
   List<KSpecialRule> getSpecialRuleList();
 

@@ -18,7 +18,6 @@ CRLF=\r|\n|\r\n|\R
 WS=[\ \n\t\f\s]
 FIRST_VALUE_CHARACTER=[^ \n\f\\] | "\\"{CRLF} | "\\".
 VALUE_CHARACTER=[^\n\f\\] | "\\"{CRLF} | "\\".
-//COMMENT=("#"|"!")[^\r\n]*
 COMMENT= (\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\/) | (\/\/.*?)
 SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
@@ -73,14 +72,6 @@ NUMBER=[12]
 <YYINITIAL> {TYPE}                           { yybegin(YYINITIAL); return KTypes.TYPE; }
 <YYINITIAL> {STRING_VALUE}                           { yybegin(YYINITIAL); return KTypes.STRING_VALUE; }
 <YYINITIAL> {STRING}                           { yybegin(YYINITIAL); return KTypes.STRING; }
-
-//<WAITING_VALUE> {CRLF}({CRLF}|{WS})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
-//<WAITING_VALUE> {WS}+                               { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
-//({CRLF}|{WS})+                         { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
-
-//<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return KTypes.KEY; }
-//
-//<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return KTypes.SEPARATOR; }
 
 <WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return KTypes.VALUE; }
 

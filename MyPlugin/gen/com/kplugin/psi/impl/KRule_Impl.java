@@ -33,6 +33,12 @@ public class KRule_Impl extends ASTWrapperPsiElement implements KRule_ {
   }
 
   @Override
+  @Nullable
+  public KListOptions getListOptions() {
+    return findChildByClass(KListOptions.class);
+  }
+
+  @Override
   @NotNull
   public List<KSpecialRule> getSpecialRuleList() {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, KSpecialRule.class);

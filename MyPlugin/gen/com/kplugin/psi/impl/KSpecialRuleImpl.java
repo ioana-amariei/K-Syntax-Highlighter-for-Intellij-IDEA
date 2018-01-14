@@ -44,4 +44,10 @@ public class KSpecialRuleImpl extends ASTWrapperPsiElement implements KSpecialRu
     return findNotNullChildByClass(KContent.class);
   }
 
+  @Override
+  @Nullable
+  public KListOptions getListOptions() {
+    return findChildByClass(KListOptions.class);
+  }
+
 }

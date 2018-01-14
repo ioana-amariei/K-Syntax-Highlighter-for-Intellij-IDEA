@@ -20,7 +20,7 @@ header_block ::= header_line*
 
 header_line ::= REQUIRE (CRLF+ WS*)*
 
-module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* module_body (WS|COMMENT)* module_end (WS|COMMENT)*
+module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* module_body (CRLF|WS|COMMENT)* module_end (CRLF|WS|COMMENT)*
 
 module_start ::= WS* MODULE WS+ MODULE_NAME WS* CRLF*
 
@@ -36,21 +36,9 @@ imports_line ::= WS* IMPORTS WS+ MODULE_NAME WS* CRLF*
 
 syntax_block ::= (WS* SYNTAX WS+ statement CRLF*)+
 
-/*
-  syntax Exp ::= Id
-               | Int
-           > left:
-             Exp "*" Exp [left]
-           | Exp "/" Exp [left]
-           > left:
-             Exp "+" Exp [left]
-           | Exp "-" Exp [left]
-           | "(" Exp ")" [bracket]
-*/
-
 statement ::= TYPE WS+ ASSIGN WS+ expression_block
 
-expression_block ::= (WS* expression_  WS* list_options? CRLF* WS* SPECIAL_SIGN?)+
+expression_block ::= (WS* expression_  WS* list_options? WS* COMMENT* CRLF* WS* SPECIAL_SIGN?)+
 
 expression_ ::=   STRING_VALUE
                 | TYPE
@@ -58,49 +46,35 @@ expression_ ::=   STRING_VALUE
                 |(STRING_VALUE WS* (TYPE WS*)* WS* STRING_VALUE (TYPE WS*)*)
                 | precedence_
 
-// > Stmt:
-// > left:
 precedence_ ::= SPECIAL_SIGN? WS* (OPTION | TYPE) WS* SPECIAL_SIGN
 
 list_options ::= OPTION
 
 rule_block ::= (WS* RULE WS* rule_ CRLF*)+
 
-           // rule I1:Int + I2:Int => I1 +Int I2
-rule_ ::= ((ID SPECIAL_SIGN TYPE  WS* SPECIAL_SIGN? WS*)+ WS* ID WS* SPECIAL_SIGN TYPE? WS* ID CRLF* condition_? WS* OPTION?)
-        | (special_rule+ CRLF* condition_? (CRLF|WS)*)
-        | (((STRING | ID | SPECIAL_SIGN | TYPE) WS*)+ WS* condition_? WS* OPTION?)
+rule_ ::= (special_rule+ CRLF* condition_? (CRLF|WS)*)
+        | (((STRING | ID | SPECIAL_SIGN | TYPE) WS*)+ WS* condition_? WS* list_options?)
 
 condition_ ::= WS* WHEN WS* condition_type
 
 condition_type ::= (ID WS* SPECIAL_SIGN TYPE WS* ID)
                  | (STRING | ID | SPECIAL_SIGN | WS)*
-/*
-  rule <k> (int X:Id ; => .) ...</k>
-       <env> M:Map (.Map => (X |-> 0)) </env>
-       when notBool(X in keys(M))
-*/
-special_rule ::= WS* cell_start WS* content WS* cell_end WS* OPTION? CRLF*
+
+special_rule ::= WS* cell_start WS* content WS* cell_end WS* list_options? CRLF*
 
 content ::= WS* (SPECIAL_SIGN | ID | WS)+ WS*
-/*
- configuration
-            <T>
-          <k> $PGM:Stmt </k>
-          <env> .Map </env> // varname |-> address
-          <store> .Map </store>  // address |-> value
-          <in stream="stdin"> .List </in>
-          <out stream="stdout"> .List </out>
-          <stack> .List </stack>
-            </T>
-*/
+
 configuration_block ::= (WS* CONFIGURATION (CRLF|WS)* configuration_+ CRLF*)+
+
 configuration_ ::= (CRLF|WS)* cell_start (CRLF|WS)* cell_content (CRLF|WS)* cell_end (CRLF|WS)* COMMENT* (CRLF|WS)*
+
 cell_content ::= WS* ((PGM? SPECIAL_SIGN TYPE WS*) | configuration_*)
+
 cell_start ::= (WS|CRLF)* SPECIAL_SIGN WS* (STRING|ID) WS* ((STRING|ID) SPECIAL_SIGN STRING_VALUE)? WS* SPECIAL_SIGN WS*
+
 cell_end ::= (WS|CRLF)* SPECIAL_SIGN SPECIAL_SIGN WS* ((STRING|ID) WS*)+ SPECIAL_SIGN WS*
 
-module_end ::= ENDMODULE CRLF*
+module_end ::= (CRLF|WS)* ENDMODULE CRLF*
 
 item_ ::= (property|COMMENT|CRLF)
 

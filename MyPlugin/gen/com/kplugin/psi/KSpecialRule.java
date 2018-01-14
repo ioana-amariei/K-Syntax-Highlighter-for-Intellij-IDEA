@@ -16,4 +16,7 @@ public interface KSpecialRule extends PsiElement {
   @NotNull
   KContent getContent();
 
+  @Nullable
+  KListOptions getListOptions();
+
 }
