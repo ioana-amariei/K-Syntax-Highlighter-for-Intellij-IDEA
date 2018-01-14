@@ -11,25 +11,19 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KCondition_Impl extends ASTWrapperPsiElement implements KCondition_ {
+public class KConditionTypeImpl extends ASTWrapperPsiElement implements KConditionType {
 
-  public KCondition_Impl(ASTNode node) {
+  public KConditionTypeImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitCondition_(this);
+    visitor.visitConditionType(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KVisitor) accept((KVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public KConditionType getConditionType() {
-    return findNotNullChildByClass(KConditionType.class);
   }
 
 }

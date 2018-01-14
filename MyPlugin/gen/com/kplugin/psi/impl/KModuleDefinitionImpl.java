@@ -11,14 +11,14 @@ import static com.kplugin.psi.KTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.kplugin.psi.*;
 
-public class KCondition_Impl extends ASTWrapperPsiElement implements KCondition_ {
+public class KModuleDefinitionImpl extends ASTWrapperPsiElement implements KModuleDefinition {
 
-  public KCondition_Impl(ASTNode node) {
+  public KModuleDefinitionImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull KVisitor visitor) {
-    visitor.visitCondition_(this);
+    visitor.visitModuleDefinition(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,8 +28,20 @@ public class KCondition_Impl extends ASTWrapperPsiElement implements KCondition_
 
   @Override
   @NotNull
-  public KConditionType getConditionType() {
-    return findNotNullChildByClass(KConditionType.class);
+  public KModuleBody getModuleBody() {
+    return findNotNullChildByClass(KModuleBody.class);
+  }
+
+  @Override
+  @NotNull
+  public KModuleEnd getModuleEnd() {
+    return findNotNullChildByClass(KModuleEnd.class);
+  }
+
+  @Override
+  @NotNull
+  public KModuleStart getModuleStart() {
+    return findNotNullChildByClass(KModuleStart.class);
   }
 
 }

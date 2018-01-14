@@ -27,6 +27,10 @@ public class KVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitConditionType(@NotNull KConditionType o) {
+    visitPsiElement(o);
+  }
+
   public void visitConfiguration_(@NotNull KConfiguration_ o) {
     visitPsiElement(o);
   }
@@ -72,6 +76,10 @@ public class KVisitor extends PsiElementVisitor {
   }
 
   public void visitModuleBody(@NotNull KModuleBody o) {
+    visitPsiElement(o);
+  }
+
+  public void visitModuleDefinition(@NotNull KModuleDefinition o) {
     visitPsiElement(o);
   }
 

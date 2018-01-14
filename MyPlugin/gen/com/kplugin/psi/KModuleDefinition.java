@@ -5,15 +5,15 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface KSpecialRule extends PsiElement {
+public interface KModuleDefinition extends PsiElement {
 
   @NotNull
-  KCellEnd getCellEnd();
+  KModuleBody getModuleBody();
 
   @NotNull
-  KCellStart getCellStart();
+  KModuleEnd getModuleEnd();
 
   @NotNull
-  KContent getContent();
+  KModuleStart getModuleStart();
 
 }

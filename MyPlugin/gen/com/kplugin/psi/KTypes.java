@@ -13,6 +13,7 @@ public interface KTypes {
   IElementType CELL_END = new KElementType("CELL_END");
   IElementType CELL_START = new KElementType("CELL_START");
   IElementType CONDITION_ = new KElementType("CONDITION_");
+  IElementType CONDITION_TYPE = new KElementType("CONDITION_TYPE");
   IElementType CONFIGURATION_ = new KElementType("CONFIGURATION_");
   IElementType CONFIGURATION_BLOCK = new KElementType("CONFIGURATION_BLOCK");
   IElementType CONTENT = new KElementType("CONTENT");
@@ -25,6 +26,7 @@ public interface KTypes {
   IElementType ITEM_ = new KElementType("ITEM_");
   IElementType LIST_OPTIONS = new KElementType("LIST_OPTIONS");
   IElementType MODULE_BODY = new KElementType("MODULE_BODY");
+  IElementType MODULE_DEFINITION = new KElementType("MODULE_DEFINITION");
   IElementType MODULE_END = new KElementType("MODULE_END");
   IElementType MODULE_START = new KElementType("MODULE_START");
   IElementType PRECEDENCE_ = new KElementType("PRECEDENCE_");
@@ -77,6 +79,9 @@ public interface KTypes {
       else if (type == CONDITION_) {
         return new KCondition_Impl(node);
       }
+      else if (type == CONDITION_TYPE) {
+        return new KConditionTypeImpl(node);
+      }
       else if (type == CONFIGURATION_) {
         return new KConfiguration_Impl(node);
       }
@@ -112,6 +117,9 @@ public interface KTypes {
       }
       else if (type == MODULE_BODY) {
         return new KModuleBodyImpl(node);
+      }
+      else if (type == MODULE_DEFINITION) {
+        return new KModuleDefinitionImpl(node);
       }
       else if (type == MODULE_END) {
         return new KModuleEndImpl(node);

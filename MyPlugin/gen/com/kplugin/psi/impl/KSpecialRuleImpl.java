@@ -40,12 +40,6 @@ public class KSpecialRuleImpl extends ASTWrapperPsiElement implements KSpecialRu
 
   @Override
   @NotNull
-  public List<KCondition_> getCondition_List() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, KCondition_.class);
-  }
-
-  @Override
-  @NotNull
   public KContent getContent() {
     return findNotNullChildByClass(KContent.class);
   }
