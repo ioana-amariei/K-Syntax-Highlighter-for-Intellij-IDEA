@@ -13,7 +13,6 @@
   tokenTypeClass="com.kplugin.psi.KTokenType"
 }
 
-
 kFile ::= (CRLF|WS|COMMENT)* header_block (module_definition CRLF*)+
 
 header_block ::= header_line*
@@ -68,7 +67,7 @@ configuration_block ::= (WS* CONFIGURATION (CRLF|WS)* configuration_+ CRLF*)+
 
 configuration_ ::= (CRLF|WS)* cell_start (CRLF|WS)* cell_content (CRLF|WS)* cell_end (CRLF|WS)* COMMENT* (CRLF|WS)*
 
-cell_content ::= WS* ((PGM? SPECIAL_SIGN TYPE WS*) | configuration_*)
+cell_content ::= WS* ((PGM? SPECIAL_SIGN TYPE (WS* SPECIAL_SIGN WS* STRING)? WS*)| configuration_*)
 
 cell_start ::= (WS|CRLF)* SPECIAL_SIGN WS* (STRING|ID) WS* ((STRING|ID) SPECIAL_SIGN STRING_VALUE)? WS* SPECIAL_SIGN WS*
 
