@@ -8,15 +8,10 @@ It provides:
 - support for autocompletion
 - recognition of files with k extension
 
-
 ### Install
-Copy the newly created archive file to the .IntelliJIDEAx0\config\plugins folder, and then restart your IDE so the changes may take effect. To know how to locate your plugins directory, refer to IDE Settings, Caches, Logs, and Plugins.
-In the main menu, select File | Settings to open the Settings dialog box.
-In the Settings dialog box, under IDE Settings, click Plugins.
-In the Plugins area, open the Installed tab, and then select the check-box next to your plugin name.
-When finished, click OK to close the Settings dialog box.
-Restart the IDE so that your changes take effect.
-
+1. download [**k-syntax-highlighter.jar**](https://github.com/ioanabirsan/K-Syntax-Highlighter-for-Intellij-IDEA/blob/master/MyPlugin/k-syntax-highlighter.jar)
+2. click **File** from the IDE toolbar -> **Project structure** -> **Modules** -> **Dependencies** -> **'+' → JARs or directories**
+3. add the **k-syntax-highlighter.jar** and click **Apply**
 
 ### Bibliography
 [https://en.wikipedia.org/wiki/Service_provider_interface](https://en.wikipedia.org/wiki/Service_provider_interface)
