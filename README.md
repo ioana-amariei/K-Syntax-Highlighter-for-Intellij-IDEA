@@ -1,7 +1,7 @@
 # K Syntax Highlighter for Intellij IDEA
 
 ### Description
-This plugin was developed within a school project for [Principles of Programming Languages](https://profs.info.uaic.ro/~arusoaie.andrei/lectures/PLP/2017/plp.html) course.
+This plugin for Intellij-IDEA represents a tool for [K](http://www.kframework.org/index.php/Main_Page) language and it was developed within a school project for [Principles of Programming Languages](https://profs.info.uaic.ro/~arusoaie.andrei/lectures/PLP/2017/plp.html) course.
 
 It provides:
 - syntax highlighting
