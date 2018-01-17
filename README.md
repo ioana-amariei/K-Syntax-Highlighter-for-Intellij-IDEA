@@ -24,4 +24,7 @@ It provides:
 
 [https://www.cqse.eu/en/blog/intellij-plugin-tutorial/](https://www.cqse.eu/en/blog/intellij-plugin-tutorial/)
 
+[https://github.com/kframework/k/wiki/Manual-(to-be-processed)](https://github.com/kframework/k/wiki/Manual-(to-be-processed))
+
+
 
