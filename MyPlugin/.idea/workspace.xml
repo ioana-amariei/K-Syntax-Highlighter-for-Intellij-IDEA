@@ -2,79 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01059847-11fe-42da-b14d-db00e6ed12a4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/KLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/parser/KParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KBlockType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCellContent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCellEnd.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCellStart.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KConditionType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KCondition_.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KConfigurationBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KConfiguration_.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KContent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KExpressionBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KExpression_.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KHeaderBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KHeaderLine.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KImportsBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KImportsLine.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KItem_.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KListOptions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleBody.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleDefinition.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleEnd.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KModuleStart.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KPrecedence_.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KProperty.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KRuleBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KRule_.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KSpecialRule.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KSyntaxBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KTypes.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/KVisitor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KBlockTypeImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCellContentImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCellEndImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCellStartImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KConditionTypeImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KCondition_Impl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KConfigurationBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KConfiguration_Impl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KContentImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KExpressionBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KExpression_Impl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KHeaderBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KHeaderLineImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KImportsBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KImportsLineImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KItem_Impl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KListOptionsImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleBodyImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleDefinitionImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleEndImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KModuleStartImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KPrecedence_Impl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KPropertyImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KRuleBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KRule_Impl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KSpecialRuleImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KStatementImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/kplugin/psi/impl/KSyntaxBlockImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/k-syntax-highlighter.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/k-syntax-highlighter.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/kplugin/test.k" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/KCompletionContributor.class" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/KCompletionContributor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/KLexer.class" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/KLexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/parser/KParser.class" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/parser/KParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/psi/KTypes$Factory.class" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/psi/KTypes$Factory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/psi/KTypes.class" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/psi/KTypes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/out/production/k-syntax-highlighter/com/kplugin/K.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.bnf" afterPath="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/K.flex" afterPath="$PROJECT_DIR$/src/com/kplugin/K.flex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" afterPath="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,7 +21,7 @@
       <file leaf-file-name="K.bnf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
+            <state relative-caret-position="27">
               <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
               <folding>
                 <element signature="e#0#372#0" expanded="true" />
@@ -105,8 +33,8 @@
       <file leaf-file-name="K.flex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+            <state relative-caret-position="-454">
+              <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -184,6 +112,7 @@
         <option value="$PROJECT_DIR$/src/com/kplugin/KCompletionContributor.java" />
         <option value="$PROJECT_DIR$/src/com/kplugin/K.bnf" />
         <option value="$PROJECT_DIR$/src/com/kplugin/K.flex" />
+        <option value="$PROJECT_DIR$/src/test.k" />
       </list>
     </option>
   </component>
@@ -216,8 +145,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,6 +170,20 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="k-syntax-highlighter-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kplugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -250,7 +191,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,6 +467,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="89" y="-9" width="1840" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -541,7 +485,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23893303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23893303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -603,7 +547,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/kplugin/psi/impl/KPsiImplUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/KIcons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -817,7 +760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.bnf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
+        <state relative-caret-position="27">
           <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
           <folding>
             <element signature="e#0#372#0" expanded="true" />
@@ -825,10 +768,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.k">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5238">
+          <caret line="194" column="9" lean-forward="false" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kplugin/K.flex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+        <state relative-caret-position="-454">
+          <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
           <folding />
         </state>
       </provider>
