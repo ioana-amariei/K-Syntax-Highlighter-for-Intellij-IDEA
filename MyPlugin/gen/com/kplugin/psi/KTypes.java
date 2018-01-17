@@ -48,6 +48,7 @@ public interface KTypes {
   IElementType MODULE = new KTokenType("MODULE");
   IElementType MODULE_NAME = new KTokenType("MODULE_NAME");
   IElementType OPTION = new KTokenType("OPTION");
+  IElementType PATH = new KTokenType("PATH");
   IElementType PGM = new KTokenType("PGM");
   IElementType REQUIRE = new KTokenType("REQUIRE");
   IElementType RULE = new KTokenType("RULE");

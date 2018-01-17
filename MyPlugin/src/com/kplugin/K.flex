@@ -26,23 +26,24 @@ ENDMODULE=endmodule
 PGM=[$](PGM|pgm|Pgm)
 MODULE_NAME=[A-Z]+(\-SYNTAX)?
 IMPORTS=imports
-REQUIRE=require
+REQUIRE=requires
+PATH=\"({STRING}[/]?)+[.]{STRING}\"
 SYNTAX=syntax
 RULE=rule
 ID=([A-Z][0-9]) | [0-9] | "_" | [A-Z]
 CONFIGURATION=configuration
-STRING_VALUE= \"[a-zA-Z0-9(){}*!=></%+;\-\[\]&|,]*\"
+STRING_VALUE= (\"[a-zA-Z0-9()\^{}*!#@?=></%+;:\-\[\]\\&|,~.]*\") | (\"\")
 WHEN=when
 ASSIGN="::="
 TYPE=Int | String | Float | Id | Map | List | {SORT_NAME}
-SORT_NAME=[A-Z]+[a-z]+([A-Z][a-z]*)?
-SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "*" | "<" | "=>" | "." | "{" |  "}"
-           | "<=" | "|->" | ";" | "~>" | "..." | "/" | "=/=" | "%" | "[" | "]"
-           | "$" | "=" | "(" | ")" | "!" | ","
-OPTION=\[(({KEYWORD}|[a-z]+)([ ,]?)*)+\] | {KEYWORD}
+SORT_NAME=([A-Z]+[a-z]+([A-Z][a-z]*)?)+
+SPECIAL_SIGN="|" | ">" | ":" | "+" | "-" | "*" | "<" | "=>" | "." | "{" |  "}" |"."
+           | "<=" | "|->" | ";" | "~>" | "..." | "/" | "=/=" | "%" | "[" | "]" | "'"
+           | "$" | "=" | "(" | ")" | "!" | "," | "#" | "@" | "?" | "^" | "%" | "~"
+OPTION=\[(({KEYWORD}|[a-z()]+)([ ,]?)*)+\] | {KEYWORD}
 KEYWORD=bracket | left | right | strict | strict\({NUMBER}\)
-STRING=[A-Za-z]+
-NUMBER=[12]
+STRING=[a-zA-Z0-9#%$&~+\-']+
+NUMBER=[0-9] | ([1-9][0-9]+)
 
 %state WAITING_VALUE
 
@@ -55,6 +56,7 @@ NUMBER=[12]
 <YYINITIAL> {WS}+                          { yybegin(YYINITIAL); return KTypes.WS; }
 
 <YYINITIAL> {REQUIRE}                           { yybegin(YYINITIAL); return KTypes.REQUIRE; }
+<YYINITIAL> {PATH}                           { yybegin(YYINITIAL); return KTypes.PATH; }
 <YYINITIAL> {MODULE}                           { yybegin(YYINITIAL); return KTypes.MODULE; }
 <YYINITIAL> {PGM}                           { yybegin(YYINITIAL); return KTypes.PGM; }
 <YYINITIAL> {SPECIAL_SIGN}                           { yybegin(YYINITIAL); return KTypes.SPECIAL_SIGN; }
@@ -75,5 +77,4 @@ NUMBER=[12]
 
 <WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return KTypes.VALUE; }
 
-.                                                           { return TokenType.BAD_CHARACTER; }
-
+. { return TokenType.BAD_CHARACTER; }

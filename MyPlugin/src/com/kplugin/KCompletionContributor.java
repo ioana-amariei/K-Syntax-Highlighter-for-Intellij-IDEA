@@ -30,7 +30,7 @@ public class KCompletionContributor extends CompletionContributor {
                     "PGM",
                     "pgm",
                     "imports",
-                    "require",
+                    "requires",
                     "configuration",
                     "Id",
                     "Int",

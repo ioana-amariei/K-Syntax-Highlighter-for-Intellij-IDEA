@@ -17,7 +17,7 @@ kFile ::= (CRLF|WS|COMMENT)* header_block (module_definition CRLF*)+
 
 header_block ::= header_line*
 
-header_line ::= REQUIRE (CRLF+ WS*)*
+header_line ::= REQUIRE WS* PATH (CRLF+ WS*)*
 
 module_definition ::= (CRLF|WS|COMMENT)* module_start (WS|COMMENT)* module_body (CRLF|WS|COMMENT)* module_end (CRLF|WS|COMMENT)*
 
@@ -41,6 +41,8 @@ expression_block ::= (WS* expression_  WS* list_options? WS* COMMENT* CRLF* WS* 
 
 expression_ ::=   STRING_VALUE
                 | TYPE
+                | STRING
+                | MODULE_NAME
                 | (TYPE WS* STRING_VALUE? WS* TYPE)
                 |(STRING_VALUE WS* (TYPE WS*)* WS* STRING_VALUE (TYPE WS*)*)
                 | precedence_
@@ -52,7 +54,7 @@ list_options ::= OPTION
 rule_block ::= (WS* RULE WS* rule_ CRLF*)+
 
 rule_ ::= (special_rule+ CRLF* condition_? (CRLF|WS)*)
-        | (((STRING | ID | SPECIAL_SIGN | TYPE) WS*)+ WS* condition_? WS* list_options?)
+        | (((STRING | ID | SPECIAL_SIGN | TYPE | REQUIRE | MODULE_NAME | STRING_VALUE) WS*)+ WS* condition_? WS* list_options?)
 
 condition_ ::= WS* WHEN WS* condition_type
 
