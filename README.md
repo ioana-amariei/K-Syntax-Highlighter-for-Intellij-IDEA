@@ -5,7 +5,7 @@ The *K Syntax Highligher for IntelliJ IDEA* is a plugin that provides *syntax hi
 
 **Tech: Java, BNF Grammars, JFlex**
 
-### Install
+### Installation Instructions
 1. download [**k-syntax-highlighter.jar**](https://github.com/ioanabirsan/K-Syntax-Highlighter-for-Intellij-IDEA/blob/master/MyPlugin/k-syntax-highlighter.jar)
 2. click **File** from the IDE toolbar -> **Project structure** -> **Modules** -> **Dependencies** -> **'+' → JARs or directories**
 3. add the **k-syntax-highlighter.jar** and click **Apply**
