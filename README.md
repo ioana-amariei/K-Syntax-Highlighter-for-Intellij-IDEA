@@ -11,7 +11,7 @@ The *K Syntax Highligher for IntelliJ IDEA* is a plugin that provides *syntax hi
 3. add the **k-syntax-highlighter.jar** and click **Apply**
 
 ### Other
-- Developed part of the [Principles of Programming Languages](https://profs.info.uaic.ro/~arusoaie.andrei/lectures/PLP/2017/plp.html) course.
+- Developed part of the [Principles of Programming Languages](https://profs.info.uaic.ro/~arusoaie.andrei/plp/plp.html) course.
 
 ### Bibliography
 - [https://en.wikipedia.org/wiki/Service_provider_interface](https://en.wikipedia.org/wiki/Service_provider_interface)
