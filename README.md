@@ -1,7 +1,7 @@
 # K Syntax Highlighter for Intellij IDEA
 
 ### Introduction
-The **K Syntax Highligher for IntelliJ IDEA** is a plugin that provides **syntax highlighting capabilities**, **autocompletion support**, and **recognition of files** for the [K Semantic Framework](http://www.kframework.org/index.php/Main_Page) when working with IntelliJ IDEA.
+The *K Syntax Highligher for IntelliJ IDEA* is a plugin that provides *syntax highlighting capabilities*, *autocompletion support*, and *recognition of files* for the [K Semantic Framework](http://www.kframework.org/index.php/Main_Page) when working with IntelliJ IDEA.
 
 **Tech: Java, BNF Grammars, JFlex**
 
